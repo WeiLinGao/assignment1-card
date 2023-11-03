@@ -7,11 +7,7 @@
 #include "Card.hpp"
 
 
-enum CardType
-{
-    POINT_CARD,
-    ACTION_CARD
-};
+
 
 Card::~Card()
 {
