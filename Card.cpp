@@ -264,3 +264,4 @@ void Card::setDrawn(const bool& drawn)
 {
     drawn_ = drawn;
 }
+
