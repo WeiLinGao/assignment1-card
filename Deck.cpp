@@ -1,5 +1,6 @@
 #ifndef DECK_HPP
 #define DECK_HPP
+
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -61,6 +62,9 @@ private:
     std::vector<CardType> cards_;
 };
 
+#include "Deck.cpp"
+#endif
+
 
 template <typename CardType>
 Deck<CardType>::Deck() :cards_{}
@@ -83,7 +87,7 @@ void Deck<CardType>::AddCard(const CardType& card)
 template <typename CardType>
 CardType&& Deck<CardType>::Draw()
 {
-	if (!(IsEmpty())
+	if (!IsEmpty())
 	{
 		CardType card=std::move(cards_.back());
 		cards_.pop_back();
@@ -91,7 +95,7 @@ CardType&& Deck<CardType>::Draw()
 	}
     else
     {
-        return CardType{};
+        throw std::out_of_range("EMPTY.");
     }
   
 }
