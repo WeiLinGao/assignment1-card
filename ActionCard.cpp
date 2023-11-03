@@ -21,7 +21,7 @@ bool ActionCard::isPlayable()
 
     return false;
 }
-
+/*
 void ActionCard::Print() const
 {
     std::cout << "Type: [" << getType() << "]" << std::endl;
@@ -44,3 +44,4 @@ void ActionCard::Print() const
         std::cout << "No image data" << std::endl;
     }
 }
+*/
