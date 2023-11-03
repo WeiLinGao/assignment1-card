@@ -3,7 +3,7 @@
 
 ActionCard::ActionCard() : Card()
 {
-    cardType_ = CardType::ACTION_CARD;
+    setType(CardType::ACTION_CARD);
 }
 
 bool ActionCard::isPlayable()
