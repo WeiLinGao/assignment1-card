@@ -17,7 +17,10 @@ Card::Card(const Card& rhs)
     {
         bitmap_ = new int[80];
 
-        std::copy(rhs.bitmap_, rhs.bitmap_ + 80, bitmap_);
+        for (int i = 0; i < 80; i++)
+        {
+            bitmap_[i] = rhs.bitmap_[i];
+        }
 
     }
 
@@ -26,7 +29,7 @@ Card::Card(const Card& rhs)
         bitmap_ = nullptr;
     }
 
-   
+
 
 }
 
@@ -34,21 +37,31 @@ Card& Card:: operator=(const Card& rhs)
 {
     if (this != &rhs)
     {
-        
+        delete[] bitmap_;
         cardType_ = rhs.cardType_;
         drawn_ = rhs.drawn_;
         instruction_ = rhs.instruction_;
-        delete[] bitmap_;
-        bitmap_ = nullptr;
 
         if (rhs.bitmap_ != nullptr)
         {
             bitmap_ = new int[80];
 
-            std::copy(rhs.bitmap_, rhs.bitmap_ + 80, bitmap_);
+            for (int i = 0; i < 80; i++)
+            {
+                bitmap_[i] = rhs.bitmap_[i];
+            }
         }
-        
-        return *this;
+
+        else
+        {
+            bitmap_ = nullptr;
+        }
+
+
+
+    }
+
+    return *this;
 }
 
 Card::Card(Card&& rhs)
