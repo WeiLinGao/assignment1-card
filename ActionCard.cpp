@@ -1,7 +1,7 @@
 #include "ActionCard.hpp"
 
 
-ActionCard::ActionCard() : Card()
+ActionCard::ActionCard()
 {
     setType(CardType::ACTION_CARD);
 }
