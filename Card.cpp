@@ -101,7 +101,7 @@ private:
     int* bitmap_;
     bool drawn_;
 };
-#endif
+
 Card::~Card()
 {
     delete[] bitmap_;
@@ -264,7 +264,3 @@ void Card::setDrawn(const bool& drawn)
 {
     drawn_ = drawn;
 }
-
-
-virtual void Print() const = 0;
-virtual bool isPlayable() = 0;
