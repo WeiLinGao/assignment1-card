@@ -106,8 +106,8 @@ Player::Player()
 	hand_ = Hand();
 	score_ = 0;
 	opponent_ = nullptr;
-	actiondeck_ = new Deck<ActionCard>();
-	pointdeck_ = new Deck<PointCard>();
+	actiondeck_ =nullptr;
+	pointdeck_ = nullptr;
 }
 
 Player::~Player()
@@ -147,7 +147,7 @@ void Player::play(ActionCard&& card)
 
 void Player::drawPointCard()
 {
-	if (pointdeck_ == nullptr || pointdeck_->empty())
+	if (pointdeck_ == nullptr || pointdeck_->IsEmpty())
 	{
 		return;
 	}
@@ -156,6 +156,7 @@ void Player::drawPointCard()
 	hand_.addCard(std::move(card));
 }
 
+/*
 void Player::playPointCard()
 {
 	if (hand_.empty())
@@ -163,6 +164,7 @@ void Player::playPointCard()
 		return;
 	}
 }
+*/
 
 void Player::setOpponent(Player* opponent)
 {
