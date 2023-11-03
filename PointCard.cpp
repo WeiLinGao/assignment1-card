@@ -6,7 +6,7 @@ PointCard::PointCard():Card()
 	cardType_ = CardType::POINT_CARD;
 }
 
-
+/*
 bool PointCard::isPlayable() 
 {
 	if (getDrawn())
@@ -29,7 +29,7 @@ bool PointCard::isPlayable()
 	return false;
 }
 
-/*
+
 void PointCard::Print() const 
 {
 	std::cout << "Type: [" << getType() << "]" << std::endl;
