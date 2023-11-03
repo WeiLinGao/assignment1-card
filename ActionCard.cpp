@@ -5,7 +5,7 @@ ActionCard::ActionCard() : Card()
 {
     cardType_ = CardType::ACTION_CARD;
 }
-
+/*
 bool ActionCard::isPlayable()
 {
     if (getDrawn()) {
@@ -21,7 +21,7 @@ bool ActionCard::isPlayable()
 
     return false;
 }
-/*
+
 void ActionCard::Print() const
 {
     std::cout << "Type: [" << getType() << "]" << std::endl;
