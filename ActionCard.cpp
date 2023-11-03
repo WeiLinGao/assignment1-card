@@ -5,7 +5,7 @@ ActionCard::ActionCard() : Card()
 {
     cardType_ = CardType::ACTION_CARD;
 }
-/*
+
 bool ActionCard::isPlayable()
 {
     if (getDrawn()) {
@@ -44,4 +44,3 @@ void ActionCard::Print() const
         std::cout << "No image data" << std::endl;
     }
 }
-*/
