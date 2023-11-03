@@ -6,7 +6,7 @@ PointCard::PointCard():Card()
 	cardType_ = CardType::POINT_CARD;
 }
 
-/*
+
 bool PointCard::isPlayable() 
 {
 	if (getDrawn())
@@ -53,4 +53,4 @@ void PointCard::Print() const
 		std::cout << "No image data" << std::endl;
 	}
 }
-*/
+
