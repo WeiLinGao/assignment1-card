@@ -101,7 +101,7 @@ private:
     int* bitmap_;
     bool drawn_;
 };
-
+#endif
 Card::~Card()
 {
     delete[] bitmap_;
