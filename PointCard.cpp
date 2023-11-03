@@ -29,7 +29,7 @@ bool PointCard::isPlayable()
 	return false;
 }
 
-
+/*
 void PointCard::Print() const 
 {
 	std::cout << "Type: [" << getType() << "]" << std::endl;
@@ -53,3 +53,4 @@ void PointCard::Print() const
 		std::cout << "No image data" << std::endl;
 	}
 }
+*/
