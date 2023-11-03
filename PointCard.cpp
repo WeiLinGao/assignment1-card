@@ -3,7 +3,7 @@
 
 PointCard::PointCard():Card()
 {
-	cardType_ = CardType::POINT_CARD;
+	setType(CardType::POINT_CARD);
 }
 
 
