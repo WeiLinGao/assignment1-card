@@ -205,7 +205,7 @@ Card::Card():cardType_(CardType::POINT_CARD)
 
 }
 
-string Card::getType() const
+std::string Card::getType() const
 {
     if (cardType_ == CardType::POINT_CARD)
     {
