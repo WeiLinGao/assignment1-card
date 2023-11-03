@@ -7,6 +7,7 @@
 #include "Card.hpp"
 #include <random>
 
+
 template <typename CardType>
 class Deck
 {
@@ -14,30 +15,57 @@ public:
     /**
      * @post: Construct a new Deck object
      */
-    Deck();
+    Deck() :cards_{}
+    {
+
+    }
 
     /**
      * @post: Destroy the Deck object
      */
-    ~Deck();
+    ~Deck()
+    {
+        cards_.clear();
+    }
 
     /**
      * @post: Add a Card to the Deck
      * @param: const reference to CardType card
      */
-    void AddCard(const CardType& card);
+    void AddCard(const CardType& card)
+    {
+        cards_.push_back(card);
+    }
 
     /**
      * @post: Draw a card from the deck
      * @pre: the deck is not empty
      * @return the right hand value of type CardType
      */
-    CardType&& Draw();
+    CardType&& Draw()
+    {
+        if (!IsEmpty())
+        {
+            CardType card = std::move(cards_.back());
+            cards_.pop_back();
+            return std::move(card);
+
+        }
+        else
+        {
+            throw std::out_of_range("EMPTY.");
+
+        }
+
+    }
 
     /**
      * @return if the deck is empty
      */
-    bool IsEmpty() const;
+    bool IsEmpty() const
+    {
+        return cards_.empty();
+    }
 
     /**
      * @post: Shuffle the deck
@@ -46,85 +74,30 @@ public:
      * https://en.cppreference.com/w/cpp/algorithm/random_shuffle
      * https://en.cppreference.com/w/cpp/numeric/random/mersenne_twister_engine
      */
-    void Shuffle();
+    void Shuffle()
+    {
+        std::mt19937 rd(2028358904);
+        std::shuffle(cards_.begin(), cards_.end(), rd);
+    }
 
     /**
      * @return the size of the deck
      */
-    int getSize() const;
+    int getSize() const
+    {
+        return cards_.size();
+    }
 
     /**
      * @return the vector of cards in the deck
      */
-    std::vector<CardType> getDeck() const;
+    std::vector<CardType> getDeck() const
+    {
+        return cards_;
+    }
 
 private:
     std::vector<CardType> cards_;
 };
 
-#include "Deck.cpp"
 #endif
-
-
-template <typename CardType>
-Deck<CardType>::Deck() :cards_{}
-{
-}
-
-template <typename CardType>
-Deck<CardType>::~Deck()
-{
-
-	cards_.clear();
-}
-
-template <typename CardType>
-void Deck<CardType>::AddCard(const CardType& card)
-{
-	cards_.push_back(card);
-}
-
-template <typename CardType>
-CardType&& Deck<CardType>::Draw()
-{
-	if (!IsEmpty())
-	{
-		CardType card=std::move(cards_.back());
-		cards_.pop_back();
-		return card;
-	}
-    else
-    {
-        throw std::out_of_range("EMPTY.");
-    }
-  
-}
-
-template <typename CardType>
-bool Deck<CardType>::IsEmpty() const
-{
-	return cards_.empty();
-}
-
-template <typename CardType>
-void Deck<CardType>::Shuffle()
-{
-	std::mt19937 rd(2028358904);
-
-	std::shuffle(cards_.begin(), cards_.end(),rd);
-}
-
-
-template <typename CardType>
-int Deck<CardType>::getSize() const
-{
-	return cards_.size();
-}
-
-
-template <typename CardType>
-std::vector<CardType> Deck<CardType>::getDeck() const
-{
-	return cards_;
-}
-
