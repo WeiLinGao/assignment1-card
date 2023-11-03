@@ -91,7 +91,7 @@ CardType&& Deck<CardType>::Draw()
 	{
 		CardType card=std::move(cards_.back());
 		cards_.pop_back();
-		return card;
+		return std::move(card);
 	}
     else
     {
