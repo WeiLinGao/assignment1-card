@@ -1,9 +1,5 @@
-#ifndef CARD_HPP
-#define CARD_HPP
-
-#include <iostream>
-#include <string>
 #include "Card.hpp"
+
 
 
 Card::~Card()
@@ -165,4 +161,5 @@ void Card::setDrawn(const bool& drawn)
 {
     drawn_ = drawn;
 }
+
 
