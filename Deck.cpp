@@ -1,6 +1,5 @@
 #include "Deck.hpp"
-#ifndef DECK_CPP
-#define DECK_CPP
+
 template <typename CardType>
 Deck<CardType>::Deck()
 {
@@ -59,4 +58,3 @@ std::vector<CardType> Deck<CardType>::getDeck() const
 {
     return cards_;
 }
-#endif
