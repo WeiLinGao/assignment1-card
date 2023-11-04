@@ -67,20 +67,15 @@ void Player::drawPointCard()
 
 void Player::playPointCard()
 {
-	if (hand_.empty())
+	try 
 	{
-		return;
-	}
-
-	PointCard card = hand_.getCards().front();
-	if (card.isPlayable())
-	{
-		int point = std::stoi(card.getInstruction());
-
-		score_ += point;
-
-		hand_.getCards().pop_front();
-	}
+        int point = hand_.PlayCard();
+        score_ += point;
+    }
+    catch (const std::runtime_error& e) 
+    {
+       
+    }
 }
 
 
@@ -91,7 +86,7 @@ void Player::setOpponent(Player* opponent)
 
 Player* Player::getOpponent()
 {
-	return opponent;
+	return opponent_;
 }
 
 
@@ -117,4 +112,3 @@ Deck<PointCard>* Player::getPointDeck()
 {
 	return pointdeck_;
 }
-
