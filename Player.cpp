@@ -73,7 +73,7 @@ void Player::playPointCard()
 	{
 		int point = std::stoi(card.getInstruction());
 
-		score += point;
+		score_ += point;
 
 		hand_.getCards().pop_front();
 	}
