@@ -2,14 +2,13 @@
 #include "PointCard.hpp"
 
 
-
 PointCard::PointCard():Card()
 {
 	setType(CardType::POINT_CARD);
 }
 
 
-bool PointCard::isPlayable() override
+bool PointCard::isPlayable() 
 {
 	if (getDrawn())
 	{
@@ -32,7 +31,7 @@ bool PointCard::isPlayable() override
 }
 
 
-void PointCard::Print() const override
+void PointCard::Print() const 
 {
 	std::cout << "Type: [" << getType() << "]" << std::endl;
 	std::cout << "Points: [" << getInstruction() << "]" << std::endl;
