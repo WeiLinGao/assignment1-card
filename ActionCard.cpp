@@ -8,8 +8,10 @@ ActionCard::ActionCard() : Card()
     setType(CardType::ACTION_CARD);
 }
 
-bool ActionCard::isPlayable() override {
-    if (Card::getDrawn()) {
+bool ActionCard::isPlayable()  
+{
+    if (Card::getDrawn()) 
+    {
         std::string instruction = getInstruction();
         std::regex draw("^DRAW \\d+ CARD(S)?$");
         std::regex play("^PLAY \\d+ CARD(S)?$");
@@ -23,7 +25,7 @@ bool ActionCard::isPlayable() override {
     return false; 
 }
 
-void ActionCard::Print() const override
+void ActionCard::Print() const 
 {
     std::cout << "Type: [" << getType() << "]" << std::endl;
     std::cout << "Instruction: [" << getInstruction() << "]" << std::endl;
@@ -45,3 +47,4 @@ void ActionCard::Print() const override
         std::cout << "No image data" << std::endl;
     }
 }
+
