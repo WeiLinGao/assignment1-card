@@ -25,13 +25,15 @@ void Deck<CardType>::AddCard(const CardType& card)
 }
 
 template <typename CardType>
-CardType&& Deck<CardType>::Draw()
+CardType&&Deck<CardType>::Draw() 
 {
-    if (!IsEmpty())
+    if (!IsEmpty()) 
     {
-        return std::move(cards_.back());
-    }
-    else
+        CardType&&card = std::move(cards_.back()); 
+        cards_.pop_back();  
+        return std::move(card);  
+    } 
+    else 
     {
         throw std::out_of_range("EMPTY.");
     }
