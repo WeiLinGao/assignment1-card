@@ -5,13 +5,13 @@
 
 
 
-PointCard::PointCard()
+PointCard::PointCard():Card()
 {
 	setType(CardType::POINT_CARD);
 }
 
 
-bool PointCard::isPlayable() 
+bool PointCard::isPlayable() override
 {
 	if (getDrawn())
 	{
@@ -34,7 +34,7 @@ bool PointCard::isPlayable()
 }
 
 
-void PointCard::Print() const 
+void PointCard::Print() const override
 {
 	std::cout << "Type: [" << getType() << "]" << std::endl;
 	std::cout << "Points: [" << getInstruction() << "]" << std::endl;
@@ -57,4 +57,3 @@ void PointCard::Print() const
 		std::cout << "No image data" << std::endl;
 	}
 }
-
