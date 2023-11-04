@@ -2,7 +2,7 @@
 #include "PointCard.hpp"
 
 
-PointCard::PointCard():Card()
+PointCard::PointCard()
 {
 	setType(CardType::POINT_CARD);
 }
