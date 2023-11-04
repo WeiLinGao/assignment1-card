@@ -1,27 +1,19 @@
 
 #include "Player.hpp" 
 
+
+
 Player::Player()
 {
 	hand_ = Hand();
 	score_ = 0;
 	opponent_ = nullptr;
-	actiondeck_ =nullptr;
+	actiondeck_ = nullptr;
 	pointdeck_ = nullptr;
 }
 
 Player::~Player()
 {
-	if (actiondeck_ != nullptr) 
-	{
-		delete actiondeck_;
-		actiondeck_ = nullptr; 
-	}
-	if (pointdeck_ != nullptr) 
-	{
-		delete pointdeck_;
-		pointdeck_ = nullptr;  
-	}
 }
 
 
@@ -51,6 +43,24 @@ void Player::setScore(const int& score)
 void Player::play(ActionCard&& card)
 {
 	std::cout << "PLAYING ACTION CARD: [" << card.getInstruction() << "]" << std::endl;
+	/*
+	if (instruction == "DRAW x CARDS")
+	{
+		for (int i = 0; i < ; ++i) 
+		{
+			if (actiondeck_ != nullptr && !actiondeck_->IsEmpty()) 
+			{
+				ActionCard drawnCard = actiondeck_->Draw();
+			}
+		}
+	}
+	else if (instruction == "REVERSE HAND") 
+	{
+
+		hand_.Reverse();
+	}
+	*/
+
 }
 
 void Player::drawPointCard()
@@ -65,17 +75,20 @@ void Player::drawPointCard()
 }
 
 
+
+
+
 void Player::playPointCard()
 {
-	try 
+	try
 	{
-        int point = hand_.PlayCard();
-        score_ += point;
-    }
-    catch (const std::runtime_error& e) 
-    {
-       
-    }
+		int point = hand_.PlayCard();
+		score_ += point;
+	}
+	catch (const std::runtime_error& e)
+	{
+
+	}
 }
 
 
