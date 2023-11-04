@@ -1,6 +1,8 @@
-#include "Card.hpp"
+#ifndef CARD_HPP
+#define CARD_HPP
 
-
+#include <iostream>
+#include <string>
 Card::~Card()
 {
     delete[] bitmap_;
