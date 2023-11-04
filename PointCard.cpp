@@ -1,4 +1,3 @@
-
 #include "PointCard.hpp"
 
 
@@ -8,7 +7,7 @@ PointCard::PointCard()
 }
 
 
-bool PointCard::isPlayable() 
+bool PointCard::isPlayable()
 {
 	if (getDrawn())
 	{
@@ -31,7 +30,7 @@ bool PointCard::isPlayable()
 }
 
 
-void PointCard::Print() const 
+void PointCard::Print() const
 {
 	std::cout << "Type: [" << getType() << "]" << std::endl;
 	std::cout << "Points: [" << getInstruction() << "]" << std::endl;
