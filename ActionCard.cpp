@@ -1,11 +1,4 @@
-#ifndef ACTIONCARD_HPP
-#define ACTIONCARD_HPP
 
-#include <iostream>
-#include <string>
-#include <cctype>
-#include <regex>
-#include "Card.hpp"
 #include "ActionCard"
 
 
