@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "Card.hpp"
+#include "PointCard"
 
 
 
