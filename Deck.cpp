@@ -1,10 +1,11 @@
-#include "Deck.hpp"
+#ifndef DECK_HPP
+#define DECK_HPP
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include "Card.hpp"
+#include <random>
 
-
-template <typename CardType>
-Deck<CardType>::Deck() : cards_{}
-{
-}
 
 template <typename CardType>
 Deck<CardType>::~Deck()
@@ -23,9 +24,7 @@ CardType&& Deck<CardType>::Draw()
 {
     if (!IsEmpty())
     {
-        CardType card = std::move(cards_.back());
-        cards_.pop_back();
-        return card;
+        return std::move(cards_.back());
     }
     else
     {
