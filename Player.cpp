@@ -58,7 +58,7 @@ void Player::drawPointCard()
 	hand_.addCard(std::move(card));
 }
 
-/*
+
 void Player::playPointCard()
 {
 	if (hand_.empty())
@@ -66,7 +66,7 @@ void Player::playPointCard()
 		return;
 	}
 }
-*/
+
 
 void Player::setOpponent(Player* opponent)
 {
