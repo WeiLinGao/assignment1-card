@@ -1,6 +1,4 @@
-
 #include "ActionCard.hpp"
-
 
 
 ActionCard::ActionCard()
@@ -8,9 +6,9 @@ ActionCard::ActionCard()
     setType(CardType::ACTION_CARD);
 }
 
-bool ActionCard::isPlayable()  
+bool ActionCard::isPlayable()
 {
-    if (Card::getDrawn()) 
+    if (Card::getDrawn())
     {
         std::string instruction = getInstruction();
         std::regex draw("^DRAW \\d+ CARD(S)?$");
@@ -18,14 +16,14 @@ bool ActionCard::isPlayable()
         std::regex reverse("^REVERSE HAND$");
         std::regex swap("^SWAP HAND WITH OPPONENT$");
 
-        
-        return (std::regex_match(instruction, draw) ||std::regex_match(instruction, play) || std::regex_match(instruction, reverse) || std::regex_match(instruction, swap));
+
+        return (std::regex_match(instruction, draw) || std::regex_match(instruction, play) || std::regex_match(instruction, reverse) || std::regex_match(instruction, swap));
     }
 
-    return false; 
+    return false;
 }
 
-void ActionCard::Print() const 
+void ActionCard::Print() const
 {
     std::cout << "Type: [" << getType() << "]" << std::endl;
     std::cout << "Instruction: [" << getInstruction() << "]" << std::endl;
