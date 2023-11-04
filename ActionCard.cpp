@@ -1,4 +1,8 @@
-
+#include <iostream>
+#include <string>
+#include <cctype>
+#include <regex>
+#include "Card.hpp"
 #include "ActionCard.hpp"
 
 
