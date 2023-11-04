@@ -5,8 +5,6 @@
 #include "ActionCard.hpp"
 #include "PointCard.hpp"
 
-
-
 Player::Player()
 {
 	hand_ = Hand();
@@ -68,6 +66,16 @@ void Player::playPointCard()
 	if (hand_.empty())
 	{
 		return;
+	}
+
+	PointCard card = hand_.getCards().front();
+	if (card.isPlayable())
+	{
+		int point = std::stoi(card.getInstruction());
+
+		score += point;
+
+		hand_.getCards().pop_front();
 	}
 }
 
