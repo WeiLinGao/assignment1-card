@@ -71,7 +71,7 @@ void Hand::Reverse()
 	std::reverse(cards_.begin(), cards_.end());
 }
 
-/*
+
 int Hand::PlayCard()
 {
 	if (isEmpty())
@@ -82,13 +82,13 @@ int Hand::PlayCard()
 	PointCard& card = cards_.front();
 	if (!(card.isPlayable()))
 	{
-		cards_.pop_fornt();
+		cards_.pop_front();
 		return 0;
 	}
 
 	else
 	{
-		int score=
+		return 1;
 	}
 
 	return 0;
