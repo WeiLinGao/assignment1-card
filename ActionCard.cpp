@@ -6,12 +6,12 @@
 #include "ActionCard.hpp"
 
 
-ActionCard::ActionCard()
+ActionCard::ActionCard() : Card()
 {
     setType(CardType::ACTION_CARD);
 }
 
-bool ActionCard::isPlayable()
+bool ActionCard::isPlayable() override
 {
     if (getDrawn()) {
         std::string instruction = getInstruction();
@@ -27,7 +27,7 @@ bool ActionCard::isPlayable()
     return false;
 }
 
-void ActionCard::Print() const
+void ActionCard::Print() const override
 {
     std::cout << "Type: [" << getType() << "]" << std::endl;
     std::cout << "Instruction: [" << getInstruction() << "]" << std::endl;
