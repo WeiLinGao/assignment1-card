@@ -1,5 +1,6 @@
 #include "Card.hpp"
-
+#include <iostream>
+#include <string>
 
 
 Card::~Card()
