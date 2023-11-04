@@ -1,10 +1,4 @@
-#ifndef DECK_HPP
-#define DECK_HPP
-#include <vector>
-#include <iostream>
-#include <algorithm>
-#include "Card.hpp"
-#include <random>
+
 #include "Deck.hpp"
 
 template <typename CardType>
