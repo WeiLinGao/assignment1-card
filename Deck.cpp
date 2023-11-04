@@ -7,7 +7,11 @@
 #include <random>
 #include "Deck.hpp"
 
-
+template <typename CardType>
+Deck<CardType>::Deck():cards_{}
+{
+    
+}
 template <typename CardType>
 Deck<CardType>::~Deck()
 {
