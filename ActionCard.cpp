@@ -6,8 +6,6 @@
 #include "ActionCard.hpp"
 
 
-#include "ActionCard.hpp"
-
 
 ActionCard::ActionCard() : Card()
 {
