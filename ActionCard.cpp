@@ -6,13 +6,15 @@
 #include "ActionCard.hpp"
 
 
+#include "ActionCard.hpp"
+
+
 ActionCard::ActionCard() : Card()
 {
     setType(CardType::ACTION_CARD);
 }
 
-bool ActionCard::isPlayable() override
-{
+bool ActionCard::isPlayable() override {
     if (getDrawn()) {
         std::string instruction = getInstruction();
         std::regex draw("^DRAW \\d+ CARD(S)?$");
@@ -20,11 +22,11 @@ bool ActionCard::isPlayable() override
         std::regex reverse("^REVERSE HAND$");
         std::regex swap("^SWAP HAND WITH OPPONENT$");
 
-        return (std::regex_match(instruction, draw) || std::regex_match(instruction, play) ||
-            std::regex_match(instruction, reverse) || std::regex_match(instruction, swap));
+        
+        return (std::regex_match(instruction, draw) ||std::regex_match(instruction, play) || std::regex_match(instruction, reverse) || std::regex_match(instruction, swap));
     }
 
-    return false;
+    return false; 
 }
 
 void ActionCard::Print() const override
