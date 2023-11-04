@@ -1,9 +1,4 @@
-#ifndef POINTCARD_HPP
-#define POINTCARD_HPP
 
-#include <iostream>
-#include <string>
-#include "Card.hpp"
 #include "PointCard"
 
 
