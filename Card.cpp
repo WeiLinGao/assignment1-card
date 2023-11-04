@@ -1,5 +1,6 @@
 #include "Card.hpp"
 
+
 Card::~Card()
 {
     delete[] bitmap_;
@@ -78,7 +79,7 @@ Card& Card::operator=(Card&& rhs)
 {
     if (this != &rhs)
     {
-        cardType_= rhs.cardType_;
+        cardType_ = rhs.cardType_;
         instruction_ = std::move(rhs.instruction_);
         drawn_ = rhs.drawn_;
         delete[] bitmap_;
@@ -86,7 +87,7 @@ Card& Card::operator=(Card&& rhs)
         rhs.bitmap_ = nullptr;
 
 
-        
+
 
     }
 
@@ -94,7 +95,7 @@ Card& Card::operator=(Card&& rhs)
 }
 
 
-Card::Card():cardType_(CardType::POINT_CARD)
+Card::Card() :cardType_(CardType::POINT_CARD)
 {
     instruction_ = "";
     bitmap_ = nullptr;
@@ -108,7 +109,7 @@ std::string Card::getType() const
     {
         return "POINT_CARD";
     }
-    else if(cardType_== CardType::ACTION_CARD)
+    else if (cardType_ == CardType::ACTION_CARD)
     {
         return "ACTION_CARD";
     }
@@ -122,7 +123,7 @@ void Card::setType(const CardType& type)
     cardType_ = type;
 }
 
-const std::string& Card:: getInstruction() const
+const std::string& Card::getInstruction() const
 {
     return instruction_;
 }
@@ -140,14 +141,14 @@ const int* Card::getImageData() const
 void Card::setImageData(int* data)
 {
 
-    if (data != nullptr) 
+    if (data != nullptr)
     {
         delete[] bitmap_;
         bitmap_ = new int[80];
-        std::copy(data, data + 80,bitmap_);
+        std::copy(data, data + 80, bitmap_);
     }
 
-   
+
 }
 
 bool Card::getDrawn() const
@@ -159,4 +160,3 @@ void Card::setDrawn(const bool& drawn)
 {
     drawn_ = drawn;
 }
-
