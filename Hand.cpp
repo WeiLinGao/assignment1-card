@@ -1,5 +1,7 @@
+#include <iostream>
 #include "Hand.hpp"
-
+#include <deque>
+#include "PointCard.hpp"
 
 Hand::Hand() :cards_{}
 {
