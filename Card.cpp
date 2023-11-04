@@ -1,6 +1,5 @@
 #include "Card.hpp"
 
-
 Card::~Card()
 {
     delete[] bitmap_;
@@ -160,5 +159,4 @@ void Card::setDrawn(const bool& drawn)
 {
     drawn_ = drawn;
 }
-
 
