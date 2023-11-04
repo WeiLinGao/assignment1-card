@@ -1,6 +1,5 @@
-
 #include "Hand.hpp"
-
+#include <algorithm>
 
 Hand::Hand() :cards_{}
 {
@@ -49,7 +48,7 @@ Hand& Hand::operator=(Hand&& other)
 }
 
 
-const std::deque<PointCard>&Hand:: getCards() const
+const std::deque<PointCard>& Hand::getCards() const
 {
 	return cards_;
 }
