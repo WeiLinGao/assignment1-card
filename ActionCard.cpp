@@ -45,4 +45,3 @@ void ActionCard::Print() const
         std::cout << "No image data" << std::endl;
     }
 }
-
