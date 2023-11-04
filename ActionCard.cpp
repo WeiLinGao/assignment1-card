@@ -13,7 +13,7 @@ ActionCard::ActionCard() : Card()
 }
 
 bool ActionCard::isPlayable() override {
-    if (getDrawn()) {
+    if (Card::getDrawn()) {
         std::string instruction = getInstruction();
         std::regex draw("^DRAW \\d+ CARD(S)?$");
         std::regex play("^PLAY \\d+ CARD(S)?$");
