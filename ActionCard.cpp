@@ -5,6 +5,7 @@
 #include <string>
 #include <cctype>
 #include <regex>
+#include "Card.hpp"
 
 class ActionCard : public Card
 {
