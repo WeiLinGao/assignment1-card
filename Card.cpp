@@ -69,11 +69,12 @@ Card& Card:: operator=(const Card& rhs)
     return *this;
 }
 
+
 Card::Card(Card&& rhs)
 {
-    cardType_ = std::move(rhs.cardType_);
+    cardType_ = rhs.cardType_;
     instruction_ = std::move(rhs.instruction_);
-    bitmap_ = std::move(rhs.bitmap_);
+    bitmap_ = rhs.bitmap_;
     drawn_ = rhs.drawn_;
     rhs.bitmap_ = nullptr;
 
@@ -83,11 +84,11 @@ Card& Card::operator=(Card&& rhs)
 {
     if (this != &rhs)
     {
-        cardType_= std::move(rhs.cardType_);
+        cardType_= rhs.cardType_;
         instruction_ = std::move(rhs.instruction_);
         drawn_ = rhs.drawn_;
         delete[] bitmap_;
-        bitmap_ = std::move(rhs.bitmap_);
+        bitmap_ = rhs.bitmap_;
         rhs.bitmap_ = nullptr;
 
 
@@ -164,3 +165,4 @@ void Card::setDrawn(const bool& drawn)
 {
     drawn_ = drawn;
 }
+
