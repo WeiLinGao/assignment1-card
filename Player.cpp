@@ -1,9 +1,5 @@
-#include <iostream>
+
 #include "Player.hpp" 
-#include "Hand.hpp" 
-#include "Deck.hpp"
-#include "ActionCard.hpp"
-#include "PointCard.hpp"
 
 Player::Player()
 {
