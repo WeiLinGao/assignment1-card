@@ -6,6 +6,7 @@
 #include <cctype>
 #include <regex>
 #include "Card.hpp"
+#include "ActionCard"
 
 
 ActionCard::ActionCard()
