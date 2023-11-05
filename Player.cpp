@@ -45,40 +45,31 @@ void Player::play(ActionCard&& card)
 {
 	std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
 	std::string instruction = card.getInstruction();
-	std::regex draw(R"(^DRAW \d+ CARD\(S?\)$)");
-	std::regex play(R"(^PLAY \d+ CARD\(S?\)$)");
-	std::smatch a;
+	
 
-	if (std::regex_match(instruction, a,draw))
+	if (instruction.find("DRAW") != std::string::npos) 
 	{
-		int numDraw = std::stoi(a[1]);
-		for (int i = 0; i < numDraw; i++)
+		size_t pos = instruction.find_first_of(' ');
+		int numDraw = std::stoi(instruction.substr(pos + 1));
+		for (int i = 0; i < numDraw; i++) 
 		{
 			if (!actiondeck_->IsEmpty()) 
 			{
 				ActionCard drawnCard = actiondeck_->Draw();
-				std::cout << "Drawn Card: " << drawnCard.getInstruction() << std::endl;
-				
+				drawPointCard();
+		
 			}
 		}
 	}
-	else if (std::regex_match(instruction, a, play))
+	else if (instruction.find("PLAY") != std::string::npos) 
 	{
-		int numD= std::stoi(a[1]);
-		for (int i = 0; i < numD; i++)
+		size_t pos = instruction.find_first_of(' ');
+		int numPlay = std::stoi(instruction.substr(pos + 1));
+		for (int i = 0; i < numPlay; i++) 
 		{
-			try 
-			{
-				int points = hand_.PlayCard();
-				score_ += points;
-			}
-			catch (const std::runtime_error& e) 
-			{
-				
-			}
+			playPointCard();
+			
 		}
-
-
 	}
 	else if (instruction == "REVERSE HAND") 
 	{
