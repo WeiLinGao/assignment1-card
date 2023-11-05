@@ -62,6 +62,7 @@ void Player::play(ActionCard&& card)
 			}
 			
 			ActionCard drawnCard = actiondeck_->Draw();
+			std::cout << "Drew a action Card." << std::endl;
 			displayAction(drawnCard);
 			drawPointCard();
 			std::cout << "Drew a Point Card." << std::endl;
