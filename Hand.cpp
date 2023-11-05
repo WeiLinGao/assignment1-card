@@ -88,7 +88,6 @@ void Hand::Reverse()
 }
 
 
-
 int Hand::PlayCard()
 {
 	if (isEmpty())
@@ -99,9 +98,17 @@ int Hand::PlayCard()
 	PointCard& card = cards_.front();
 	int point = 0;
 
-	if (card.isPlayable())
-	{
-		point = std::stoi(card.getInstruction());
+	if (card.isPlayable()) {
+		std::string instruction = card.getInstruction();
+		if (!instruction.empty()) 
+		{
+			bool s = std::all_of(instruction.begin(), instruction.end(), ::isdigit);
+
+			if (s) 
+			{
+				point = std::stoi(instruction);
+			}
+		}
 	}
 
 	cards_.pop_front();
