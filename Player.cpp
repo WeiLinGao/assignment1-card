@@ -93,6 +93,7 @@ void Player::play(ActionCard&& card)
 		hand_.Reverse();
 		std::cout << "Reversed." << std::endl;
 		display();
+		std::cout << "action." << std::endl;
 		displayAction(card);
 
 	}
@@ -105,7 +106,7 @@ void Player::play(ActionCard&& card)
 		std::cout << "Swapped." << std::endl;
 		display();
 		displayAction(card);
-		opponent_->display();
+		
 		
 	}
 
