@@ -47,7 +47,6 @@ void Player::play(ActionCard&& card)
 	
 	std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
 	std::string instruction = card.getInstruction();
-	std::cout << "Display:" << std::endl;
 	display();
 	displayAction(card);
 	if (instruction.find("DRAW") != std::string::npos) 
