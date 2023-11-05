@@ -93,6 +93,7 @@ class Player
          * @return: a pointer to the player's point deck
          */
         Deck<PointCard>* getPointDeck();
+        void display();
         
     private:
         Hand hand_;   // The player's hand
