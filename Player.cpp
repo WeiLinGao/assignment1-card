@@ -132,10 +132,6 @@ void Player::display()
 	
 	}
 
-	for(int i=0;i<61;++i)
-	{
-		std::cout<<i<<std::endl;
-	}
 			
 }
 
