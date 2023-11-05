@@ -117,4 +117,6 @@ int Hand::PlayCard()
 		point = std::stoi(instruction);
 	}
 
+	return point;
+
 }
