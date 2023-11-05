@@ -54,13 +54,16 @@ void Player::play(ActionCard&& card)
 		int numDraw = std::stoi(instruction.substr(pos + 1));
 		for (int i = 0; i < numDraw; i++) 
 		{
-			if (!actiondeck_->IsEmpty()) 
+			if (!actiondeck_ || actiondeck_->IsEmpty()) 
 			{
-				ActionCard drawnCard = actiondeck_->Draw();
-				drawPointCard();
-				std::cout << "Drew a Point Card." << std::endl;
-		
+				std::cout << "Empty Deck" << std::endl;
+				break;  
 			}
+			
+			ActionCard drawnCard = actiondeck_->Draw();
+			drawPointCard();
+			std::cout << "Drew a Point Card." << std::endl;
+		
 		}
 	}
 	else if (instruction.find("PLAY") != std::string::npos) 
@@ -105,19 +108,24 @@ void Player::display()
 {
 	std::cout << "Score: " << score_ << std::endl;
 	const auto& cards = hand_.getCards();
-	for (const auto& card : cards) {
+	for (const auto& card : cards) 
+	{
 		std::cout << "Card Type: " << card.getType() << std::endl; 
 	}
 }
 
 void Player::drawPointCard()
 {
-	if (pointdeck_ != nullptr && !pointdeck_->IsEmpty())
+	if (!pointdeck_ || pointdeck_->IsEmpty()) 
 	{
-		PointCard card = pointdeck_->Draw();
-		hand_.addCard(std::move(card));
-		card.Print();
+		std::cout << "Empty deck" << std::endl;
+		return;
 	}
+	
+	PointCard card = pointdeck_->Draw();
+	hand_.addCard(std::move(card));
+	card.Print();
+
 
 	
 
