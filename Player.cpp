@@ -57,6 +57,7 @@ void Player::play(ActionCard&& card)
 			if (!actiondeck_->IsEmpty()) 
 			{
 				ActionCard drawnCard = actiondeck_->Draw();
+				drawPointCard();
 				
 		
 			}
