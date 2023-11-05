@@ -58,7 +58,7 @@ void Player::play(ActionCard&& card)
 			{
 				ActionCard drawnCard = actiondeck_->Draw();
 				drawPointCard();
-				playPointCard();
+
 		
 			}
 		}
@@ -69,7 +69,7 @@ void Player::play(ActionCard&& card)
 		int numPlay = std::stoi(instruction.substr(pos + 1));
 		for (int i = 0; i < numPlay; i++) 
 		{
-			drawPointCard();
+			
 			playPointCard();
 			
 		}
@@ -86,7 +86,7 @@ void Player::play(ActionCard&& card)
 		Hand a = hand_;
 		hand_ = opponent_->getHand();
 		opponent_->setHand(a);
-	
+		
 		
 	}
 	else
@@ -98,7 +98,18 @@ void Player::play(ActionCard&& card)
 
 }
 
+void Player::drawPointCard()
+{
+	if (pointdeck_ != nullptr && !pointdeck_->IsEmpty())
+	{
+		PointCard card = pointdeck_->Draw();
+		hand_.addCard(std::move(card));
+		card.Print();
+	}
 
+	
+
+}
 
 
 
