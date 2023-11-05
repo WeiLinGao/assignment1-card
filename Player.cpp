@@ -94,9 +94,22 @@ void Player::play(ActionCard&& card)
 		std::cout << "invalid" << std::endl;
 	}
 
+	display();
+
+
 	
 
 }
+
+void Player::display() 
+{
+	std::cout << "Score: " << score_ << std::endl;
+	const auto& cards = hand_.getCards();
+	for (const auto& card : cards) {
+		std::cout << "Card Type: " << card.getType() << std::endl; 
+	}
+}
+
 void Player::drawPointCard()
 {
 	if (pointdeck_ != nullptr && !pointdeck_->IsEmpty())
