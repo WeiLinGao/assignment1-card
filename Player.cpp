@@ -44,56 +44,57 @@ void Player::setScore(const int& score)
 
 void Player::play(ActionCard&& card)
 {
-	
+
 	std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
 	std::string instruction = card.getInstruction();
 	display();
 	displayAction(card);
-	if (instruction.find("DRAW") != std::string::npos) 
+	if (instruction.find("DRAW") != std::string::npos)
 	{
 		size_t pos = instruction.find_first_of(' ');
 		int numDraw = std::stoi(instruction.substr(pos + 1));
-		for (int i = 0; i < numDraw; i++) 
+		for (int i = 0; i < numDraw; i++)
 		{
-			if (!actiondeck_ || actiondeck_->IsEmpty()) 
+			if (!actiondeck_ || actiondeck_->IsEmpty())
 			{
 				std::cout << "Empty Deck" << std::endl;
-				break;  
+				break;
 			}
-			
+
 			ActionCard drawnCard = actiondeck_->Draw();
 			std::cout << "Drew a action Card." << std::endl;
 			displayAction(drawnCard);
 			drawPointCard();
+			std::cout << "Drew a Point Card." << std::endl;
 			display();
 			displayAction(card);
 
-		
+
 		}
 		display();
 		displayAction(card);
 	}
-	else if (instruction.find("PLAY") != std::string::npos) 
+	else if (instruction.find("PLAY") != std::string::npos)
 	{
 		size_t pos = instruction.find_first_of(' ');
 		int numPlay = std::stoi(instruction.substr(pos + 1));
-		for (int i = 0; i < numPlay; i++) 
+		for (int i = 0; i < numPlay; i++)
 		{
-			
+
 			drawPointCard();
 			playPointCard();
-			
+			std::cout << "Played a Point Card." << std::endl;
 		}
 
 		display();
 		displayAction(card);
 	}
-	else if (instruction == "REVERSE HAND") 
+	else if (instruction == "REVERSE HAND")
 	{
 		hand_.Reverse();
-		std::cout << "Reversed." << std::endl;
+		
 		display();
-		std::cout << "action." << std::endl;
+		
 		displayAction(card);
 
 	}
@@ -108,19 +109,20 @@ void Player::play(ActionCard&& card)
 
 		std::cout << "Swapped action." << std::endl;
 		displayAction(card);
-		
-		
+
+
 	}
 
-	
+
 
 	display();
 	displayAction(card);
-	
 
-	
+
+
 
 }
+
 
 void Player::display() 
 {
