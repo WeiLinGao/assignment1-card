@@ -94,7 +94,7 @@ class Player
          */
         Deck<PointCard>* getPointDeck();
         void display();
-        
+        void displayAction(const ActionCard& card);
     private:
         Hand hand_;   // The player's hand
         int score_;  // The player's score
