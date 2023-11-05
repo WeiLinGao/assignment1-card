@@ -57,7 +57,6 @@ void Player::play(ActionCard&& card)
 			if (!actiondeck_->IsEmpty()) 
 			{
 				ActionCard drawnCard = actiondeck_->Draw();
-				drawPointCard();
 				
 		
 			}
@@ -69,6 +68,7 @@ void Player::play(ActionCard&& card)
 		int numPlay = std::stoi(instruction.substr(pos + 1));
 		for (int i = 0; i < numPlay; i++) 
 		{
+			drawPointCard();
 			playPointCard();
 			
 		}
@@ -87,9 +87,9 @@ void Player::play(ActionCard&& card)
 		
 	}
 
+	
 
 }
-
 void Player::drawPointCard()
 {
 	if (pointdeck_ != nullptr && !pointdeck_->IsEmpty())
