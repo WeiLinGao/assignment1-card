@@ -91,6 +91,7 @@ void Player::play(ActionCard&& card)
 	else if (instruction == "REVERSE HAND") 
 	{
 		hand_.Reverse();
+		std::cout << "Reversed." << std::endl;
 		display();
 		displayAction(card);
 
