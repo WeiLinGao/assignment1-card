@@ -45,8 +45,7 @@ void Player::play(ActionCard&& card)
 {
 
 	std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
-	display();
-	displayAction(card);
+
 	std::string instruction = card.getInstruction();
 
 	if (instruction.find("DRAW") != std::string::npos)
@@ -62,18 +61,11 @@ void Player::play(ActionCard&& card)
 			}
 
 			ActionCard drawnCard = actiondeck_->Draw();
-			std::cout << "Drew a action Card." << std::endl;
-			displayAction(drawnCard);
+			
 			drawPointCard();
-			std::cout << "Drew a Point Card." << std::endl;
-
-			display();
-			displayAction(card);
 
 
 		}
-		display();
-		displayAction(card);
 	}
 	else if (instruction.find("PLAY") != std::string::npos)
 	{
