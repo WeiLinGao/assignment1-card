@@ -44,6 +44,7 @@ void Player::setScore(const int& score)
 
 void Player::play(ActionCard&& card)
 {
+	
 	std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
 	std::string instruction = card.getInstruction();
 	
@@ -104,10 +105,10 @@ void Player::play(ActionCard&& card)
 	else
 	{
 		std::cout << "invalid" << std::endl;
+		displayAction(card);
 	}
 
 	display();
-	
 
 	
 
@@ -119,9 +120,14 @@ void Player::display()
 	const auto& cards = hand_.getCards();
 	for (const auto& card : cards) 
 	{
-		std::cout << "Card Type: " << card.getType() << std::endl;
+		std::cout << "Card Type: " << card.getType() << std::endl; 
 	
 	}
+}
+
+void Player::displayAction(const ActionCard& card) 
+{
+	std::cout << "Card Type: " << card.getType() << std::endl;
 }
 
 void Player::drawPointCard()
