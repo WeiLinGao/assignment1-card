@@ -69,6 +69,7 @@ bool Hand::isEmpty() const
 
 void Hand::Reverse()
 {
+	/*
 	//deque<PointCard>cards_;
 	std::size_t size = cards_.size();
 	int l = 0;
@@ -86,6 +87,9 @@ void Hand::Reverse()
 		l++;
 		r--;
 	}
+	*/
+
+	std::reverse(cards_.begin(),cards_.end());
 }
 
 
