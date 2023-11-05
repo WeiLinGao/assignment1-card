@@ -45,6 +45,31 @@ void Player::play(ActionCard&& card)
 {
 	std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
 	std::string instruction = card.getInstruction();
+	std::regex draw(R"(^DRAW \d+ CARD\(S?\)$)");
+	std::smatch a;
+	if (std::regex_match(instruction, a,draw))
+	{
+		int numDraw = std::stoi(a[1]);
+		for (int i = 0; i < numDraw; i++)
+		{
+			if (!actiondeck_->IsEmpty()) 
+			{
+				ActionCard drawnCard = actiondeck_->Draw();
+				std::cout << "Drawn Card: " << drawnCard.getInstruction() << std::endl;
+				
+			}
+		}
+	}
+	else if (instruction == "REVERSE HAND") 
+	{
+		hand_.Reverse();
+
+	}
+	else 
+	{
+		std::cout  << instruction << std::endl;
+		
+	}
 
 }
 
