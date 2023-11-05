@@ -121,7 +121,7 @@ void Player::display()
 	for (const auto& card : cards) 
 	{
 		std::cout << "Card Type: " << card.getType() << std::endl;
-		std::cout << "Card Type: " << card.Print() << std::endl;
+	
 	}
 }
 
