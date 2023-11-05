@@ -114,7 +114,7 @@ void Player::play(ActionCard&& card)
 	{
 		std::cout << "invalid" << std::endl;
 		display();
-		displayAction(card);
+		
 		
 	}
 
