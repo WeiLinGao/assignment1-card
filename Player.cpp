@@ -133,7 +133,6 @@ void Player::display()
 
 void Player::displayAction(const ActionCard& card) 
 {
-	std::cout << "Instruction: " << card.getInstruction() << std::endl;
 	std::cout << "Card Type: " << card.getType() << std::endl;
 }
 
