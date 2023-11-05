@@ -90,6 +90,11 @@ void Hand::Reverse()
 
 int Hand::PlayCard() 
 {
+	if (isEmpty()) 
+	{
+		throw std::runtime_error("Empty");
+
+	}
 
 	PointCard& card = cards_.front();
 	int point = 0;
@@ -116,7 +121,7 @@ int Hand::PlayCard()
 	{
 		point = std::stoi(instruction);
 	}
-
+	cards_.pop_front();
 	return point;
 
 }
