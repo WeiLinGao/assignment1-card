@@ -57,8 +57,11 @@ void Player::play(ActionCard&& card)
 			if (!actiondeck_->IsEmpty()) 
 			{
 				ActionCard drawnCard = actiondeck_->Draw();
-				drawPointCard();
-				
+				if (pointdeck_ != nullptr && !pointdeck_->IsEmpty())
+				{
+					PointCard card = pointdeck_->Draw();
+					hand_.addCard(std::move(card));
+				}
 		
 			}
 		}
@@ -69,8 +72,11 @@ void Player::play(ActionCard&& card)
 		int numPlay = std::stoi(instruction.substr(pos + 1));
 		for (int i = 0; i < numPlay; i++) 
 		{
-			drawPointCard();
-			playPointCard();
+			if (!hand_.isEmpty())
+			{
+				int points = hand_.PlayCard();
+				score_ += points;
+			}
 			
 		}
 	}
@@ -86,6 +92,10 @@ void Player::play(ActionCard&& card)
 		hand_ = opponent_->getHand();
 		opponent_->setHand(a);
 		
+	}
+	else
+	{
+		std::cout << "invalid" << std::endl;
 	}
 
 	
