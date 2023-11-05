@@ -87,11 +87,6 @@ void Player::play(ActionCard&& card)
 		
 	}
 
-	else
-	{
-		std::cout << "Invalid Instruction" << std::endl;
-		
-	}
 
 }
 
