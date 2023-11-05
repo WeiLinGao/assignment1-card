@@ -94,8 +94,6 @@ void Player::play(ActionCard&& card)
 	{
 		hand_.Reverse();
 		
-		display();
-		
 		
 
 	}
