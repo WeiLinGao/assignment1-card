@@ -62,9 +62,10 @@ void Player::play(ActionCard&& card)
 			}
 			
 			ActionCard drawnCard = actiondeck_->Draw();
+			std::cout << drawnCard.Print() << std::endl;
 			drawPointCard();
 			std::cout << "Drew a Point Card." << std::endl;
-	
+
 		
 		}
 		display();
@@ -79,6 +80,7 @@ void Player::play(ActionCard&& card)
 			playPointCard();
 			std::cout << "Played a Point Card." << std::endl;
 		}
+
 		display();
 	}
 	else if (instruction == "REVERSE HAND") 
@@ -96,8 +98,8 @@ void Player::play(ActionCard&& card)
 		std::cout << "Swapped." << std::endl;
 
 		display();
-
 		opponent_->display();
+		
 		
 	}
 	else
@@ -107,10 +109,6 @@ void Player::play(ActionCard&& card)
 
 	display();
 
-	
-
-
-	
 
 }
 
