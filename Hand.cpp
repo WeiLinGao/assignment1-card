@@ -96,7 +96,7 @@ int Hand::PlayCard()
 	}
 
 	PointCard& card = cards_.front();
-	int point ;
+	int point;
 
 	if (card.isPlayable()) 
 	{
