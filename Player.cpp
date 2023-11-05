@@ -120,7 +120,6 @@ void Player::playPointCard()
 		int points = hand_.PlayCard();
 		score_ += points;
 	}
-	std::cout << score_ << std::endl;
 }
 
 void Player::setOpponent(Player* opponent)
