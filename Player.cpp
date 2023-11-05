@@ -83,7 +83,7 @@ void Player::play(ActionCard&& card)
 	else if (instruction == "REVERSE HAND") 
 	{
 		hand_.Reverse();
-		
+		std::cout << "HAND REVERSED" << std::endl;
 
 	}
 	else if (instruction == "SWAP HAND WITH OPPONENT" && opponent_ != nullptr)
