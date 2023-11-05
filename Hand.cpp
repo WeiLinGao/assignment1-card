@@ -102,21 +102,14 @@ int Hand::PlayCard()
 	{
 		std::string instruction = card.getInstruction();
 		
-		bool s = true;
-
-		for (char c : instruction)
-		{
-			if (!std::isdigit(c))
+		try 
 			{
-				s = false;
-				break;
+				point = std::stoi(instruction);
+			} 
+		catch (const std::invalid_argument& e) 
+			{
+        
 			}
-		}
-
-		if (s)
-		{
-			point = std::stoi(instruction);
-		}
 		
 	}
 
