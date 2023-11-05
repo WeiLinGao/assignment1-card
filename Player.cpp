@@ -87,7 +87,6 @@ void Player::play(ActionCard&& card)
 
 		std::cout << "Point display:" << std::endl;
 		display();
-		std::cout << "Action display:" << std::endl;
 		displayAction(card);
 	}
 	else if (instruction == "REVERSE HAND") 
