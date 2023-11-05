@@ -119,7 +119,8 @@ void Player::display()
 	std::cout << "Score: " << score_ << std::endl;
 	const auto& cards = hand_.getCards();
 	for (const auto& card : cards) {
-		std::cout << "Card Type: " << card.getType() << std::endl; 
+		std::cout << "Card Type: " << card.getType() << std::endl;
+		std::cout << "Card Type: " << card.Print() << std::endl;
 	}
 }
 
