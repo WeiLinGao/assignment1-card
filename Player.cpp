@@ -110,6 +110,8 @@ void Player::play(ActionCard&& card)
 	else
 	{
 		std::cout << "invalid" << std::endl;
+		display();
+		displayAction(card);
 		
 	}
 
