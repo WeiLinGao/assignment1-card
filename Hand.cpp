@@ -101,7 +101,7 @@ int Hand::PlayCard()
 	if (card.isPlayable()) 
 	{
 		std::string instruction = card.getInstruction();
-		std::cout << instruction << std::endl;
+		
 		bool s = true;
 
 		for (char c : instruction)
@@ -117,14 +117,10 @@ int Hand::PlayCard()
 		{
 			point = std::stoi(instruction);
 		}
-		else 
-		{
-			std::cout << instruction << std::endl;
-		}
 		
 	}
 
 	cards_.pop_front();
 
-	return point;
+	return point+1;
 }
