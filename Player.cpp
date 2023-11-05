@@ -96,7 +96,7 @@ void Player::play(ActionCard&& card)
 		
 		display();
 		
-		displayAction(card);
+		
 
 	}
 	else if (instruction == "SWAP HAND WITH OPPONENT" && opponent_ != nullptr)
