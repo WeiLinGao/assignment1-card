@@ -41,6 +41,7 @@ void Player::setScore(const int& score)
 
 
 
+
 void Player::play(ActionCard&& card)
 {
 	std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
@@ -80,8 +81,7 @@ void Player::play(ActionCard&& card)
 	else if (instruction == "REVERSE HAND") 
 	{
 		hand_.Reverse();
-		
-		
+		std::cout << "Reversed." << std::endl;
 
 	}
 	else if (instruction == "SWAP HAND WITH OPPONENT" && opponent_ != nullptr)
@@ -89,6 +89,7 @@ void Player::play(ActionCard&& card)
 		Hand a = hand_;
 		hand_ = opponent_->getHand();
 		opponent_->setHand(a);
+		std::cout << "Swapped." << std::endl;
 		
 		
 	}
@@ -108,8 +109,7 @@ void Player::display()
 {
 	std::cout << "Score: " << score_ << std::endl;
 	const auto& cards = hand_.getCards();
-	for (const auto& card : cards) 
-	{
+	for (const auto& card : cards) {
 		std::cout << "Card Type: " << card.getType() << std::endl; 
 	}
 }
@@ -130,7 +130,6 @@ void Player::drawPointCard()
 	
 
 }
-
 
 
 void Player::playPointCard()
