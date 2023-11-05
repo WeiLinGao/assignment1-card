@@ -47,9 +47,9 @@ void Player::play(ActionCard&& card)
 	
 	std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
 	std::string instruction = card.getInstruction();
-	
 
-
+	display();
+	displayAction(card);
 	if (instruction.find("DRAW") != std::string::npos) 
 	{
 		size_t pos = instruction.find_first_of(' ');
@@ -83,7 +83,6 @@ void Player::play(ActionCard&& card)
 			drawPointCard();
 			playPointCard();
 			std::cout << "Played a Point Card." << std::endl;
-			display();
 		}
 
 		display();
