@@ -40,38 +40,47 @@ void Player::setScore(const int& score)
 }
 
 
+
 void Player::play(ActionCard&& card)
 {
-	std::cout << "PLAYING ACTION CARD: [" << card.getInstruction() << "]" << std::endl;
-	/*
-	if (instruction == "DRAW x CARDS")
+	std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
+	std::string instruction = card.getInstruction();
+	std::regex draw(R"(^DRAW \d+ CARD\(S?\)$)");
+	std::smatch a;
+	if (std::regex_match(instruction, a,draw))
 	{
-		for (int i = 0; i < ; ++i) 
+		int numDraw = std::stoi(a[1]);
+		for (int i = 0; i < numDraw; i++)
 		{
-			if (actiondeck_ != nullptr && !actiondeck_->IsEmpty()) 
+			if (!actiondeck_->IsEmpty()) 
 			{
 				ActionCard drawnCard = actiondeck_->Draw();
+				std::cout << "Drawn Card: " << drawnCard.getInstruction() << std::endl;
+				
 			}
 		}
 	}
 	else if (instruction == "REVERSE HAND") 
 	{
-
 		hand_.Reverse();
+
 	}
-	*/
+	else 
+	{
+		std::cout  << instruction << std::endl;
+		
+	}
 
 }
 
 void Player::drawPointCard()
 {
-	if (pointdeck_ == nullptr || pointdeck_->IsEmpty())
+	if (pointdeck_ != nullptr && !pointdeck_->IsEmpty())
 	{
-		return;
+		PointCard card = pointdeck_->Draw();
+		hand_.addCard(std::move(card));
 	}
 
-	PointCard card = pointdeck_->Draw();
-	hand_.addCard(std::move(card));
 }
 
 
@@ -84,6 +93,7 @@ void Player::playPointCard()
 	{
 		int point = hand_.PlayCard();
 		score_ += point;
+		std::cout << point << std::endl;
 	}
 	catch (const std::runtime_error& e)
 	{
