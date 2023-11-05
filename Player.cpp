@@ -66,6 +66,8 @@ void Player::play(ActionCard&& card)
 			displayAction(drawnCard);
 			drawPointCard();
 			std::cout << "Drew a Point Card." << std::endl;
+			display();
+			displayAction(card);
 
 		
 		}
