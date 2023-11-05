@@ -72,7 +72,10 @@ void Hand::Reverse()
 	std::size_t size = cards_.size();
 	int l = 0;
 	int r = size - 1;
-
+	if (size <= 1) 
+	{
+		return;
+	}
 	while(l < r)
 	{
 		PointCard a = cards_[l];
