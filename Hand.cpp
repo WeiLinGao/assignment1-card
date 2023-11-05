@@ -100,10 +100,16 @@ int Hand::PlayCard()
 	int point=0;
 	if (card.isPlayable())
 	{
-		point = std::stoi(card.getInstruction());
-	}
-	cards_.pop_front();
 
+		point = std::stoi(card.getInstruction());
+		cards_.pop_front();
+
+	}
+
+	else
+	{
+		cards_.pop_front();
+	}
 
 	return point;
 }
