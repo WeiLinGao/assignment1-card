@@ -105,16 +105,10 @@ void Player::play(ActionCard&& card)
 		std::cout << "Swapped." << std::endl;
 		display();
 		displayAction(card);
-		
+		opponent_->display();
 		
 	}
-	else
-	{
-		std::cout << "invalid" << std::endl;
-		display();
-		displayAction(card);
 
-	}
 	
 
 	display();
