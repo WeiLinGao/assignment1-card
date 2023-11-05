@@ -1,5 +1,5 @@
 #include "Hand.hpp"
-#include <algorithm>
+
 
 Hand::Hand() :cards_{}
 {
