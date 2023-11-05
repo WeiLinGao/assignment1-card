@@ -98,7 +98,7 @@ int Hand::PlayCard()
 	PointCard& card = cards_.front();
 	int point = 0;
 
-	if (card.isPlayable()) 
+	if (card.getDrawn() && !card.getInstruction().empty()) 
 	{
 		std::string instruction = card.getInstruction();
 		
