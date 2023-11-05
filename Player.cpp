@@ -85,7 +85,6 @@ void Player::play(ActionCard&& card)
 			std::cout << "Played a Point Card." << std::endl;
 		}
 
-		std::cout << "Point display:" << std::endl;
 		display();
 		displayAction(card);
 	}
@@ -101,20 +100,14 @@ void Player::play(ActionCard&& card)
 		Hand a = hand_;
 		hand_ = opponent_->getHand();
 		opponent_->setHand(a);
-		std::cout << "Swapped." << std::endl;
+
 		
 		display();
 		displayAction(card);
 		
 		
 	}
-	else
-	{
-		std::cout << "invalid" << std::endl;
-		
-		
-		
-	}
+	
 
 	display();
 	displayAction(card);
