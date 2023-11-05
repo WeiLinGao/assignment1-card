@@ -11,8 +11,8 @@ bool ActionCard::isPlayable()
     if (getDrawn())
     {
         std::string instruction = getInstruction();
-        std::regex draw("^DRAW \\d+ CARD(S)?$");
-        std::regex play("^PLAY \\d+ CARD(S)?$");
+        std::regex draw(R"(^DRAW \d+ CARD\(S?\)$)");
+        std::regex play(R"(^PLAY \d+ CARD\(S?\)$)");
         std::regex reverse("^REVERSE HAND$");
         std::regex swap("^SWAP HAND WITH OPPONENT$");
 
@@ -28,20 +28,22 @@ void ActionCard::Print() const
     std::cout << "Type: [" << getType() << "]" << std::endl;
     std::cout << "Instruction: [" << getInstruction() << "]" << std::endl;
     const int* data = getImageData();
-
+    std::cout << "Card:" << std::endl;
     if (data != nullptr)
     {
-        std::cout << "Card: [";
+      
 
         for (size_t i = 0; i < 80; i++)
         {
             std::cout << data[i] << " ";
         }
 
-        std::cout << "]" << std::endl;
+
     }
     else
     {
         std::cout << "No image data" << std::endl;
     }
+
+  
 }
