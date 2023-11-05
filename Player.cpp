@@ -69,7 +69,7 @@ void Player::play(ActionCard&& card)
 		int numPlay = std::stoi(instruction.substr(pos + 1));
 		for (int i = 0; i < numPlay; i++) 
 		{
-			
+			drawPointCard();
 			playPointCard();
 			
 		}
