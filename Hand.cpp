@@ -95,7 +95,7 @@ int Hand::PlayCard()
 		throw std::runtime_error("Empty");
 	}
 
-	PointCard& card = cards_.front();
+	PointCard card = cards_.front();
 	int point = 0;
 
 	if (card.getDrawn() && !card.getInstruction().empty()) 
