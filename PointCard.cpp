@@ -40,7 +40,7 @@ void PointCard::Print() const
 	{
 		
 
-		for (size_t i = 0; i < 5; i++) {
+		for (size_t i = 0; i < 80; i++) {
 			std::cout << data[i] << " ";
 		}
 
