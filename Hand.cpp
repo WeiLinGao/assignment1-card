@@ -101,12 +101,22 @@ int Hand::PlayCard()
 	if (card.isPlayable()) 
 	{
 		std::string instruction = card.getInstruction();
+		bool s = true;
 
-
-		if (!instruction.empty() && std::all_of(instruction.begin(), instruction.end(), ::isdigit)) 
+		for (char c : instruction)
 		{
-			point = std::stoi(instruction);  
+			if (!std::isdigit(c))
+			{
+				s = false;
+				break;
+			}
 		}
+
+		if (s)
+		{
+			point = std::stoi(instruction);
+		}
+		
 	}
 
 	cards_.pop_front();
