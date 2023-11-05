@@ -105,6 +105,8 @@ void Player::play(ActionCard&& card)
 
 		std::cout << "Swapped." << std::endl;
 		display();
+
+		std::cout << "Swapped action." << std::endl;
 		displayAction(card);
 		
 		
