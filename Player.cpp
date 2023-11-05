@@ -85,7 +85,9 @@ void Player::play(ActionCard&& card)
 			std::cout << "Played a Point Card." << std::endl;
 		}
 
+		std::cout << "Point display:" << std::endl;
 		display();
+		std::cout << "Action display:" << std::endl;
 		displayAction(card);
 	}
 	else if (instruction == "REVERSE HAND") 
@@ -102,7 +104,7 @@ void Player::play(ActionCard&& card)
 		hand_ = opponent_->getHand();
 		opponent_->setHand(a);
 		std::cout << "Swapped." << std::endl;
-
+		
 		display();
 		opponent_->display();
 		displayAction(card);
