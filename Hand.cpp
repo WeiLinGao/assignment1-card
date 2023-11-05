@@ -96,18 +96,14 @@ int Hand::PlayCard()
 	}
 
 	PointCard& card = cards_.front();
-	int point = 0;
+	int point ;
 
-	if (card.isPlayable()) {
+	if (card.isPlayable()) 
+	{
 		std::string instruction = card.getInstruction();
-		if (!instruction.empty()) 
+		
 		{
-			bool s = std::all_of(instruction.begin(), instruction.end(), ::isdigit);
-
-			if (s) 
-			{
-				point = std::stoi(instruction);
-			}
+			point = std::stoi(instruction);
 		}
 	}
 
