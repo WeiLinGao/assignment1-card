@@ -70,6 +70,7 @@ void Player::play(ActionCard&& card)
 		
 		}
 		display();
+		displayAction(card);
 	}
 	else if (instruction.find("PLAY") != std::string::npos) 
 	{
@@ -83,12 +84,14 @@ void Player::play(ActionCard&& card)
 		}
 
 		display();
+		displayAction(card);
 	}
 	else if (instruction == "REVERSE HAND") 
 	{
 		hand_.Reverse();
 		std::cout << "Reversed." << std::endl;
 		display();
+		displayAction(card);
 
 	}
 	else if (instruction == "SWAP HAND WITH OPPONENT" && opponent_ != nullptr)
@@ -100,6 +103,7 @@ void Player::play(ActionCard&& card)
 
 		display();
 		opponent_->display();
+		displayAction(card);
 		
 		
 	}
