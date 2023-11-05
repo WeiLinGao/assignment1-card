@@ -94,29 +94,27 @@ int Hand::PlayCard()
 	PointCard& card = cards_.front();
 	int point = 0;
 
-	if (card.getDrawn() && !card.getInstruction().empty())
+	if (!card.isPlayable())
 	{
-		std::string instruction = card.getInstruction();
-		bool s = true;
-
-		for (char c : instruction)
-		{
-			if (!std::isdigit(c))
-			{
-				s = false;
-				break;
-			}
-		}
-
-		if (s)
-		{
-			point = std::stoi(instruction);
-		}
-		
-		
+		cards_.pop_front();
+		return point;
 	}
 
-	cards_.pop_front();
+	std::string instruction = card.getInstruction();
+	bool s = true;
 
-	return point;
+	for (char c : instruction)
+	{
+		if (!std::isdigit(c))
+		{
+			s = false;
+			break;
+		}
+	}
+
+	if (s)
+	{
+		point = std::stoi(instruction);
+	}
+
 }
