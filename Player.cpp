@@ -57,6 +57,7 @@ void Player::play(ActionCard&& card)
 			if (!actiondeck_->IsEmpty()) 
 			{
 				ActionCard drawnCard = actiondeck_->Draw();
+				drawnCard.Print();
 				drawPointCard();
 				std::cout << "Drew a Point Card." << std::endl;
 		
