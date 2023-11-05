@@ -42,85 +42,75 @@ void Player::setScore(const int& score)
 
 
 
-void Player::play(ActionCard&& card)
+void Player::play(ActionCard&& card) 
 {
+    std::string instruction = card.getInstruction();
+    std::cout << "PLAYING ACTION CARD: " << instruction << std::endl;
 
-	std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
-	display();
-	displayAction(card);
-	std::string instruction = card.getInstruction();
-	
-	if (instruction.find("DRAW") != std::string::npos)
+    if (card.isPlayable()) 
+    {
+        if (instruction.find("DRAW") != std::string::npos) 
 	{
-		size_t pos = instruction.find_first_of(' ');
-		int numDraw = std::stoi(instruction.substr(pos + 1));
-		for (int i = 0; i < numDraw; i++)
+        
+            std::regex draw(R"(^DRAW (\d+) CARD\(S?\)$)");
+            std::smatch match;
+            if (std::regex_search(instruction, match, draw)) 
+	    {
+                int numCards = std::stoi(match[1].str());
+                for (int i = 0; i < numCards; ++i) 
 		{
-			if (!actiondeck_ || actiondeck_->IsEmpty())
-			{
-				
-				break;
-			}
-
-			ActionCard drawnCard = actiondeck_->Draw();
-			std::cout << "Drew a action Card." << std::endl;
-			displayAction(drawnCard);
-			drawPointCard();
-			std::cout << "Drew a Point Card." << std::endl;
-			
-			display();
-			displayAction(card);
-
-
-		}
-		display();
-		displayAction(card);
-	}
-	else if (instruction.find("PLAY") != std::string::npos)
+                    if (pointdeck_ != nullptr && !pointdeck_->IsEmpty())
+		    {
+                        PointCard drawnCard = pointdeck_->Draw();
+                        hand_.addCard(std::move(drawnCard));
+                    }
+                }
+            }
+        } 
+	else if (instruction.find("PLAY") != std::string::npos) 
 	{
-		size_t pos = instruction.find_first_of(' ');
-		int numPlay = std::stoi(instruction.substr(pos + 1));
-		for (int i = 0; i < numPlay; i++)
+           
+            std::regex play(R"(^PLAY (\d+) CARD\(S?\)$)");
+            std::smatch match;
+            if (std::regex_search(instruction, match, play)) 
+	    {
+                int numCards = std::stoi(match[1].str());
+                for (int i = 0; i < numCards; ++i) 
 		{
-
-			drawPointCard();
-			playPointCard();
-			std::cout << "Played a Point Card." << std::endl;
-		}
-
-		display();
-		displayAction(card);
-	}
-	else if (instruction == "REVERSE HAND")
+                    if (hand_.isEmpty()) 
+		    {
+                        break; 
+                    }
+                    int pointsEarned = hand_.PlayCard();
+                    score_ += pointsEarned;
+                }
+            }
+        } 
+	else if (instruction.find("REVERSE HAND") != std::string::npos) 
 	{
-		hand_.Reverse();
-		
-		
-
-	}
-	else if (instruction == "SWAP HAND WITH OPPONENT" && opponent_ != nullptr)
+            
+            hand_.Reverse();
+        } 
+	else if (instruction.find("SWAP HAND WITH OPPONENT") != std::string::npos) 
 	{
-		Hand a = hand_;
-		hand_ = opponent_->getHand();
-		opponent_->setHand(a);
-
-		
-		display();
-
-		
-		displayAction(card);
-
-
-	}
-
-
-
-	display();
-	displayAction(card);
-
-
-
-
+            
+            if (opponent_ != nullptr) 
+	    {
+                std::deque<PointCard> temp = hand_.getCards();
+                hand_.setCards(opponent_->getHand().getCards());
+                opponent_->setHand(temp);
+            }
+        } 
+	else 
+	{
+            std::cout << "Unknown instruction: " << instruction << std::endl;
+        }
+    } 
+    else 
+    {
+        
+        std::cout << "Invalid action card instruction: " << instruction << std::endl;
+    }
 }
 
 
