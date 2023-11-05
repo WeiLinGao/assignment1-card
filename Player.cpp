@@ -76,16 +76,13 @@ void Player::play(ActionCard&& card)
 
 			drawPointCard();
 			playPointCard();
-			std::cout << "Played a Point Card." << std::endl;
+	
 		}
 
-		display();
-		displayAction(card);
 	}
 	else if (instruction == "REVERSE HAND")
 	{
 		hand_.Reverse();
-
 
 
 	}
