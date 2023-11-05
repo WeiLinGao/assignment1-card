@@ -62,7 +62,6 @@ void Player::play(ActionCard&& card)
 			}
 			
 			ActionCard drawnCard = actiondeck_->Draw();
-			std::cout << drawnCard.Print() << std::endl;
 			drawPointCard();
 			std::cout << "Drew a Point Card." << std::endl;
 
@@ -108,7 +107,13 @@ void Player::play(ActionCard&& card)
 	}
 
 	display();
+	
+	for (int i = 0; i < 82; ++i) 
+	{
+		display();
+	}
 
+	
 
 }
 
