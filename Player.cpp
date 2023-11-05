@@ -110,7 +110,7 @@ void Player::play(ActionCard&& card)
 	
 	for (int i = 0; i < 82; ++i) 
 	{
-		display();
+		std::cout << i << std::endl;
 	}
 
 	
