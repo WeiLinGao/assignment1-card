@@ -96,7 +96,7 @@ void Player::play(ActionCard&& card)
 
 		display();
 
-		
+		opponent_->display();
 		
 	}
 	else
@@ -105,6 +105,8 @@ void Player::play(ActionCard&& card)
 	}
 
 	display();
+
+	
 
 
 	
