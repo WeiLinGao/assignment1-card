@@ -131,6 +131,12 @@ void Player::display()
 		std::cout << "Card Type: " << card.getType() << std::endl; 
 	
 	}
+
+	for(int i=0;i<61;++i)
+	{
+		std::cout<<i<<std::endl;
+	}
+			
 }
 
 void Player::displayAction(const ActionCard& card) 
@@ -150,9 +156,7 @@ void Player::drawPointCard()
 	hand_.addCard(std::move(card));
 	card.Print();
 
-
 	
-
 }
 
 
