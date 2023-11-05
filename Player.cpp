@@ -44,6 +44,10 @@ void Player::setScore(const int& score)
 
 void Player::play(ActionCard&& card)
 {
+	for (int i = 0; i < 82; i++) 
+	{
+		std::cout << i << std::endl;
+	}
 	std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
 	std::string instruction = card.getInstruction();
 	
