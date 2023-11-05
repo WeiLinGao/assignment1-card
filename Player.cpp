@@ -93,7 +93,6 @@ void Player::playPointCard()
 	{
 		int point = hand_.PlayCard();
 		score_ += point;
-		std::cout << point << std::endl;
 	}
 	catch (const std::runtime_error& e)
 	{
