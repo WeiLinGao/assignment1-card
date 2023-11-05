@@ -82,7 +82,6 @@ void Player::play(ActionCard&& card)
 		{
 			
 			drawPointCard();
-			std::cout << "drew a Point Card." << std::endl;
 			playPointCard();
 			std::cout << "Played a Point Card." << std::endl;
 		}
