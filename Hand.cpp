@@ -91,21 +91,28 @@ void Hand::Reverse()
 int Hand::PlayCard() 
 {
 
-	PointCard card = cards_.front();
+	PointCard& card = cards_.front();
 	int point = 0;
 
-	if (card.isPlayable()) 
+	if (card.getDrawn() && !card.getInstruction().empty())
 	{
 		std::string instruction = card.getInstruction();
-		
-		try 
+		bool s = true;
+
+		for (char c : instruction)
+		{
+			if (!std::isdigit(c))
 			{
-				point = std::stoi(instruction);
-			} 
-		catch (const std::invalid_argument& e) 
-			{
-        
+				s = false;
+				break;
 			}
+		}
+
+		if (s)
+		{
+			point = std::stoi(instruction);
+		}
+		
 		
 	}
 
