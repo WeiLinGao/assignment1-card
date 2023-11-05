@@ -46,7 +46,9 @@ void Player::play(ActionCard&& card)
 	std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
 	std::string instruction = card.getInstruction();
 	std::regex draw(R"(^DRAW \d+ CARD\(S?\)$)");
+	std::regex play(R"(^PLAY \d+ CARD\(S?\)$)");
 	std::smatch a;
+
 	if (std::regex_match(instruction, a,draw))
 	{
 		int numDraw = std::stoi(a[1]);
@@ -60,15 +62,39 @@ void Player::play(ActionCard&& card)
 			}
 		}
 	}
+	else if (std::regex_match(instruction, a, play))
+	{
+		int numD= std::stoi(a[1]);
+		for (int i = 0; i < numD; i++)
+		{
+			try 
+			{
+				int points = hand_.PlayCard();
+				score_ += points;
+			}
+			catch (const std::runtime_error& e) 
+			{
+				
+			}
+		}
+
+
+	}
 	else if (instruction == "REVERSE HAND") 
 	{
 		hand_.Reverse();
 
 	}
-	else 
+	else if (instruction == "SWAP HAND WITH OPPONENT" && opponent_ != nullptr)
 	{
-		std::cout  << instruction << std::endl;
-		
+		Hand a = hand_;
+		hand_ = opponent_->getHand();
+		opponent_->setHand(a);
+	}
+
+	else
+	{
+		std::cout << "Invalid Instruction" << std::endl;
 	}
 
 }
