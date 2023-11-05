@@ -115,7 +115,7 @@ void Player::play(ActionCard&& card)
 	
 
 	display();
-	displayAction(card);
+	
 
 	
 
