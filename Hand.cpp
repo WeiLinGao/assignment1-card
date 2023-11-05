@@ -122,5 +122,5 @@ int Hand::PlayCard()
 
 	cards_.pop_front();
 
-	return point+1;
+	return point;
 }
