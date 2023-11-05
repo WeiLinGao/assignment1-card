@@ -66,6 +66,7 @@ void Player::play(ActionCard&& card)
 			std::cout << "Drew a Point Card." << std::endl;
 		
 		}
+		display();
 	}
 	else if (instruction.find("PLAY") != std::string::npos) 
 	{
@@ -77,11 +78,13 @@ void Player::play(ActionCard&& card)
 			playPointCard();
 			std::cout << "Played a Point Card." << std::endl;
 		}
+		display();
 	}
 	else if (instruction == "REVERSE HAND") 
 	{
 		hand_.Reverse();
 		std::cout << "Reversed." << std::endl;
+		display();
 
 	}
 	else if (instruction == "SWAP HAND WITH OPPONENT" && opponent_ != nullptr)
@@ -90,6 +93,9 @@ void Player::play(ActionCard&& card)
 		hand_ = opponent_->getHand();
 		opponent_->setHand(a);
 		std::cout << "Swapped." << std::endl;
+
+		display();
+
 		
 		
 	}
