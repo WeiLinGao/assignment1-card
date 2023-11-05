@@ -58,7 +58,7 @@ void Player::play(ActionCard&& card)
 			{
 				ActionCard drawnCard = actiondeck_->Draw();
 				drawPointCard();
-
+				std::cout << "Drew a Point Card." << std::endl;
 		
 			}
 		}
@@ -71,7 +71,7 @@ void Player::play(ActionCard&& card)
 		{
 			drawPointCard();
 			playPointCard();
-			
+			std::cout << "Played a Point Card." << std::endl;
 		}
 	}
 	else if (instruction == "REVERSE HAND") 
@@ -97,7 +97,6 @@ void Player::play(ActionCard&& card)
 	
 
 }
-
 void Player::drawPointCard()
 {
 	if (pointdeck_ != nullptr && !pointdeck_->IsEmpty())
