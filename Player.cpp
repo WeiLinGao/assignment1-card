@@ -46,11 +46,7 @@ void Player::play(ActionCard&& card)
 	std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
 	std::string instruction = card.getInstruction();
 	
-	int draw = 0;
-	int play = 0;
-	int reverse = 0;
-	int swap = 0;
-	int invalid = 0;
+
 
 	if (instruction.find("DRAW") != std::string::npos) 
 	{
@@ -62,7 +58,7 @@ void Player::play(ActionCard&& card)
 			{
 				ActionCard drawnCard = actiondeck_->Draw();
 				drawPointCard();
-				draw++;
+				
 		
 			}
 		}
@@ -74,13 +70,13 @@ void Player::play(ActionCard&& card)
 		for (int i = 0; i < numPlay; i++) 
 		{
 			playPointCard();
-			play++;
+			
 		}
 	}
 	else if (instruction == "REVERSE HAND") 
 	{
 		hand_.Reverse();
-		reverse++;
+		
 
 	}
 	else if (instruction == "SWAP HAND WITH OPPONENT" && opponent_ != nullptr)
@@ -88,17 +84,16 @@ void Player::play(ActionCard&& card)
 		Hand a = hand_;
 		hand_ = opponent_->getHand();
 		opponent_->setHand(a);
-		swap++;
+		
 	}
 
 	else
 	{
 		std::cout << "Invalid Instruction" << std::endl;
-		invalid++;
+		
 	}
 
 }
-
 
 void Player::drawPointCard()
 {
@@ -116,17 +111,12 @@ void Player::drawPointCard()
 
 void Player::playPointCard()
 {
-	try
+	if (!hand_.isEmpty()) 
 	{
-		int point = hand_.PlayCard();
-		score_ += point;
-	}
-	catch (const std::runtime_error& e)
-	{
-
+		int points = hand_.PlayCard();
+		score_ += points;
 	}
 }
-
 
 void Player::setOpponent(Player* opponent)
 {
