@@ -57,7 +57,7 @@ void Player::play(ActionCard&& card)
 		{
 			if (!actiondeck_ || actiondeck_->IsEmpty())
 			{
-				std::cout << "Empty Deck" << std::endl;
+				
 				break;
 			}
 
