@@ -77,8 +77,7 @@ void Player::play(ActionCard&& card)
 	else if (instruction == "REVERSE HAND") 
 	{
 		hand_.Reverse();
-		drawPointCard();
-		playPointCard();
+		
 		
 
 	}
@@ -87,8 +86,7 @@ void Player::play(ActionCard&& card)
 		Hand a = hand_;
 		hand_ = opponent_->getHand();
 		opponent_->setHand(a);
-		drawPointCard();
-		playPointCard();
+	
 		
 	}
 	else
