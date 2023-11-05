@@ -57,11 +57,8 @@ void Player::play(ActionCard&& card)
 			if (!actiondeck_->IsEmpty()) 
 			{
 				ActionCard drawnCard = actiondeck_->Draw();
-				if (pointdeck_ != nullptr && !pointdeck_->IsEmpty())
-				{
-					PointCard card = pointdeck_->Draw();
-					hand_.addCard(std::move(card));
-				}
+				drawPointCard();
+				playPointCard();
 		
 			}
 		}
@@ -72,18 +69,17 @@ void Player::play(ActionCard&& card)
 		int numPlay = std::stoi(instruction.substr(pos + 1));
 		for (int i = 0; i < numPlay; i++) 
 		{
-			if (!hand_.isEmpty())
-			{
-				int points = hand_.PlayCard();
-				score_ += points;
-			}
+			drawPointCard();
+			playPointCard();
 			
 		}
 	}
 	else if (instruction == "REVERSE HAND") 
 	{
 		hand_.Reverse();
-		std::cout << "HAND REVERSED" << std::endl;
+		drawPointCard();
+		playPointCard();
+		
 
 	}
 	else if (instruction == "SWAP HAND WITH OPPONENT" && opponent_ != nullptr)
@@ -91,6 +87,8 @@ void Player::play(ActionCard&& card)
 		Hand a = hand_;
 		hand_ = opponent_->getHand();
 		opponent_->setHand(a);
+		drawPointCard();
+		playPointCard();
 		
 	}
 	else
@@ -99,15 +97,6 @@ void Player::play(ActionCard&& card)
 	}
 
 	
-
-}
-void Player::drawPointCard()
-{
-	if (pointdeck_ != nullptr && !pointdeck_->IsEmpty())
-	{
-		PointCard card = pointdeck_->Draw();
-		hand_.addCard(std::move(card));
-	}
 
 }
 
