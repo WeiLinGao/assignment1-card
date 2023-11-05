@@ -102,7 +102,7 @@ void Player::play(ActionCard&& card)
 		hand_ = opponent_->getHand();
 		opponent_->setHand(a);
 
-		
+		std::cout << "Swapped." << std::endl;
 		display();
 		displayAction(card);
 		
