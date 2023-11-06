@@ -1,23 +1,31 @@
 #include "Deck.hpp"
 
+
+// Construct a new Deck object(Constructor)
 template <typename CardType>
 Deck<CardType>::Deck()
 {
 
 }
 
+//Destroy the Deck object (Destructor)
 template <typename CardType>
 Deck<CardType>::~Deck() 
 {
 
 }
 
+//Add a Card to the Deck
 template <typename CardType>
 void Deck<CardType>::AddCard(const CardType& card) 
 {
     cards_.push_back(card);
 }
 
+
+//Draw a card from the deck
+   //  *  the deck is not empty
+    // *  return the right hand value of type CardType
 template <typename CardType>
 CardType&& Deck<CardType>::Draw() 
 {
@@ -35,12 +43,16 @@ CardType&& Deck<CardType>::Draw()
     
 }
 
+//return if the deck is empty
 template <typename CardType>
 bool Deck<CardType>::IsEmpty() const 
 {
     return cards_.empty();
 }
 
+//Shuffle the deck
+   //  * using std::mt19937 with seed 2028358904,
+    // * then call std::shuffle on the vector of cards, and with the random number generator as the third argument.
 template <typename CardType>
 void Deck<CardType>::Shuffle() 
 {
@@ -48,12 +60,13 @@ void Deck<CardType>::Shuffle()
     std::shuffle(cards_.begin(), cards_.end(), rd);
 }
 
+//return the size of the deck
 template <typename CardType>
 int Deck<CardType>::getSize() const 
 {
     return cards_.size();
 }
-
+//return the vector of cards in the deck
 template <typename CardType>
 std::vector<CardType> Deck<CardType>::getDeck() const 
 {
