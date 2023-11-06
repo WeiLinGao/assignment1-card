@@ -1,4 +1,3 @@
-
 #include "Player.hpp" 
 
 
@@ -8,23 +7,13 @@ Player::Player()
 	hand_ = Hand();
 	score_ = 0;
 	opponent_ = nullptr;
-	actiondeck_ = nullptr;
-	pointdeck_ = nullptr;
+	actiondeck_ = new Deck<ActionCard>();  
+	pointdeck_ = new Deck<PointCard>();
 }
 
 Player::~Player()
 {
-	if (actiondeck_ != nullptr)
-	{
-		delete actiondeck_;
-		actiondeck_ = nullptr;
-	}
-	
-	if (pointdeck_ != nullptr) 
-	{
-		delete pointdeck_;
-		pointdeck_ = nullptr;
-	}
+
 }
 
 
@@ -65,10 +54,10 @@ void Player::play(ActionCard&& card)
 		int numDraw = std::stoi(instruction.substr(pos + 1));
 		for (int i = 0; i < numDraw; i++)
 		{
-			if(pointdeck_ && !pointdeck_->IsEmpty()) 
+			if (pointdeck_ && !pointdeck_->IsEmpty())
 			{
-				PointCard* card = pointdeck_->Draw();
-				hand_.addCard(card);
+				PointCard card = pointdeck_->Draw();
+				hand_.addCard(std::move(card));
 			}
 		}
 	}
@@ -78,11 +67,11 @@ void Player::play(ActionCard&& card)
 		int numPlay = std::stoi(instruction.substr(pos + 1));
 		for (int i = 0; i < numPlay; i++)
 		{
-			if(!hand.isEmpty())
+			if (!hand_.isEmpty())
 			{
 				playPointCard();
 			}
-	
+
 		}
 
 	}
@@ -108,28 +97,28 @@ void Player::play(ActionCard&& card)
 
 void Player::drawPointCard()
 {
-	if (!pointdeck_ || pointdeck_->IsEmpty()) 
+	if (!pointdeck_ || pointdeck_->IsEmpty())
 	{
 		std::cout << "Empty deck" << std::endl;
 		return;
 	}
-	
+
 	PointCard card = pointdeck_->Draw();
 	hand_.addCard(std::move(card));
-	
 
-	
+
+
 }
 
 
 void Player::playPointCard()
 {
-	if (!hand_.isEmpty()) 
+	if (!hand_.isEmpty())
 	{
 		int points = hand_.PlayCard();
 		score_ += points;
 	}
-	
+
 }
 
 void Player::setOpponent(Player* opponent)
