@@ -1,12 +1,14 @@
 #include "PointCard.hpp"
 
-
+//Construct a new Point Card object(constrcutor)
 PointCard::PointCard()
 {
 	setType(CardType::POINT_CARD);
 }
 
 
+//return true if the card is playable, false otherwis
+// For a card to be playable, it has to be drawn and the instruction has to be a valid number
 bool PointCard::isPlayable()
 {
 	if (getDrawn())
@@ -30,7 +32,12 @@ bool PointCard::isPlayable()
 }
 
 
-
+//Print the Point Card in the following format:
+//* Type: [CardType]
+// * Points: [Instruction]
+// * Card: 
+//* [ImageData]
+//* Note: For [ImageData]: If there is no image data, print "No image data" instead
 void PointCard::Print() const
 {
 	std::cout << "Type: " << getType()  << std::endl;
