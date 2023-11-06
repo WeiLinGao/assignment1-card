@@ -1,6 +1,7 @@
 #include "Card.hpp"
 
 
+// destructor;
 Card::~Card()
 {
     if (bitmap_ != nullptr) 
@@ -10,7 +11,7 @@ Card::~Card()
     }
 }
 
-
+//Copy constructor
 Card::Card(const Card& rhs)
 {
     cardType_ = rhs.cardType_;
@@ -37,6 +38,8 @@ Card::Card(const Card& rhs)
 
 }
 
+
+//Copy assignemnt
 Card& Card:: operator=(const Card& rhs)
 {
     if (this != &rhs)
@@ -69,6 +72,7 @@ Card& Card:: operator=(const Card& rhs)
 }
 
 
+// move constructor
 Card::Card(Card&& rhs)
 {
     cardType_ = rhs.cardType_;
@@ -79,6 +83,8 @@ Card::Card(Card&& rhs)
 
 }
 
+
+//move assignment
 Card& Card::operator=(Card&& rhs)
 {
     if (this != &rhs)
@@ -100,6 +106,7 @@ Card& Card::operator=(Card&& rhs)
 }
 
 
+//Constructor
 Card::Card() :cardType_(CardType::POINT_CARD)
 {
     instruction_ = "";
@@ -108,6 +115,9 @@ Card::Card() :cardType_(CardType::POINT_CARD)
 
 }
 
+
+
+// Return cardtype in string
 std::string Card::getType() const
 {
     if (cardType_ == CardType::POINT_CARD)
@@ -121,26 +131,35 @@ std::string Card::getType() const
  
 }
 
+
+// set the card type
 void Card::setType(const CardType& type)
 {
     cardType_ = type;
 }
 
+
+// Return instruction in string
 const std::string& Card::getInstruction() const
 {
     return instruction_;
 }
 
+
+//Set set the card instruction
 void Card::setInstruction(const std::string& instruction)
 {
     instruction_ = instruction;
 }
 
+
+// return array of integer
 const int* Card::getImageData() const
 {
     return bitmap_;
 }
 
+//set image data
 void Card::setImageData(int* data)
 {
     if (bitmap_ != nullptr) 
@@ -158,11 +177,16 @@ void Card::setImageData(int* data)
     }
 }
 
+
+//return the drawn status of the card
 bool Card::getDrawn() const
 {
     return drawn_;
 }
 
+
+
+//set the drawn status of the card
 void Card::setDrawn(const bool& drawn)
 {
     drawn_ = drawn;
