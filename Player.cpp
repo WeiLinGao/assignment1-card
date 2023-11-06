@@ -54,17 +54,11 @@ void Player::play(ActionCard&& card)
 		int numDraw = std::stoi(instruction.substr(pos + 1));
 		for (int i = 0; i < numDraw; i++)
 		{
-			if (!actiondeck_ || actiondeck_->IsEmpty())
+			if(pointdeck_ && !pointdeck_->IsEmpty()) 
 			{
-
-				break;
+				PointCard* card = pointdeck_->Draw();
+				hand_.addCard(card);
 			}
-
-			ActionCard drawnCard = actiondeck_->Draw();
-			
-			drawPointCard();
-
-
 		}
 	}
 	else if (instruction.find("PLAY") != std::string::npos)
@@ -73,9 +67,10 @@ void Player::play(ActionCard&& card)
 		int numPlay = std::stoi(instruction.substr(pos + 1));
 		for (int i = 0; i < numPlay; i++)
 		{
-
-			drawPointCard();
-			playPointCard();
+			if(!hand.isEmpty())
+			{
+				playPointCard();
+			}
 	
 		}
 
