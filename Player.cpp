@@ -70,7 +70,6 @@ void Player::play(ActionCard&& card)
 			if(!hand.isEmpty())
 			{
 				playPointCard();
-				std::cout<<score_<<std::endl;
 			}
 	
 		}
