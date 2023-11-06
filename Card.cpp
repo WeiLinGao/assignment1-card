@@ -107,7 +107,7 @@ Card& Card::operator=(Card&& rhs)
 
 
 //Constructor
-Card::Card() cardType_(CardType::POINT_CARD)
+Card::Card()
 {
     cardType_= CardType::POINT_CARD;
     instruction_ = "";
