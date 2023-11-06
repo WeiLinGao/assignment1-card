@@ -1,7 +1,7 @@
 #include "Player.hpp" 
 
 
-
+//Construct a new Player object(constructor)
 Player::Player()
 {
 	hand_ = Hand();
@@ -11,36 +11,39 @@ Player::Player()
 	pointdeck_ = new Deck<PointCard>();
 }
 
+//Destroy the Player object(Destructor)
 Player::~Player()
 {
 
 }
 
 
-
+//return the player's hand
 const Hand& Player::getHand() const
 {
 	return hand_;
 }
 
-
+//Set the player's hand
 void Player::setHand(const Hand& hand)
 {
 	hand_ = hand;
 }
 
+//return the Player's current score
 int Player::getScore() const
 {
 	return score_;
 }
 
+//Set the player's score
 void Player::setScore(const int& score)
 {
 	score_ = score;
 }
 
 
-
+//Play a given action card
 void Player::play(ActionCard&& card)
 {
 
@@ -94,7 +97,7 @@ void Player::play(ActionCard&& card)
 }
 
 
-
+//Draw a point card and place it in the player's hand
 void Player::drawPointCard()
 {
 	if (!pointdeck_ || pointdeck_->IsEmpty())
@@ -111,6 +114,7 @@ void Player::drawPointCard()
 }
 
 
+//Play a point card from the player's hand and update the player's score
 void Player::playPointCard()
 {
 	if (!hand_.isEmpty())
@@ -121,35 +125,37 @@ void Player::playPointCard()
 
 }
 
+//Set the opponent of the player
 void Player::setOpponent(Player* opponent)
 {
 	opponent_ = opponent;
 }
 
+//return a pointer to the player's opponent
 Player* Player::getOpponent()
 {
 	return opponent_;
 }
 
-
+//set the action deck of the player 
 void Player::setActionDeck(Deck<ActionCard>* actiondeck)
 {
 	actiondeck_ = actiondeck;
 }
 
-
+//return a pointer to the player's action deck
 Deck<ActionCard>* Player::getActionDeck()
 {
 	return actiondeck_;
 }
 
-
+//set the point deck of the player
 void Player::setPointDeck(Deck<PointCard>* pointdeck)
 {
 	pointdeck_ = pointdeck;
 }
 
-
+//return a pointer to the player's point deck
 Deck<PointCard>* Player::getPointDeck()
 {
 	return pointdeck_;
