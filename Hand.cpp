@@ -1,23 +1,25 @@
 #include "Hand.hpp"
 
-
+//Construct a new Hand object(conrstuctor)
 Hand::Hand() :cards_{}
 {
 
 }
 
+//Destroy the Hand object(Destructor)
 Hand::~Hand()
 {
 
 	cards_.clear();
 }
 
-
+//Copy Constructor
 Hand::Hand(const Hand& other)
 {
 	cards_ = other.cards_;
 }
 
+//Copy Assignment Operator
 Hand& Hand::operator=(const Hand& other)
 {
 	if (this != &other)
@@ -28,7 +30,7 @@ Hand& Hand::operator=(const Hand& other)
 	return *this;
 }
 
-
+//Move Constructor
 Hand::Hand(Hand&& other)
 {
 	cards_ = std::move(other.cards_);
@@ -36,6 +38,7 @@ Hand::Hand(Hand&& other)
 
 }
 
+//Move assignment operator
 Hand& Hand::operator=(Hand&& other)
 {
 	if (this != &other)
@@ -48,12 +51,14 @@ Hand& Hand::operator=(Hand&& other)
 }
 
 
+//return Hand
 const std::deque<PointCard>& Hand::getCards() const
 {
 	return cards_;
 }
 
 
+//Add a card to the hand , set drawn to true
 void Hand::addCard(PointCard&& card)
 {
 	cards_.push_back(std::move(card));
@@ -61,16 +66,17 @@ void Hand::addCard(PointCard&& card)
 }
 
 
+//return true if hand is empty, false otherwise
 bool Hand::isEmpty() const
 {
 	return cards_.empty();
 }
 
 
+//Reverse the hand
 void Hand::Reverse()
 {
-	
-	//deque<PointCard>cards_;
+
 	std::size_t size = cards_.size();
 	int l = 0;
 	int r = size - 1;
@@ -91,6 +97,10 @@ void Hand::Reverse()
 }
 
 
+//Play the card at the front of the hand, removing it from the hand
+//Throws an exception if the hand is empty or the card is not playable
+//If the card is not playable, the card is removed from the hand
+//return the points earned from playing the card
 int Hand::PlayCard() 
 {
 	if (isEmpty()) 
