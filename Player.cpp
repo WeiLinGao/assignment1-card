@@ -51,26 +51,26 @@ void Player::play(ActionCard&& card)
 
 	std::string instruction = card.getInstruction();
 
-	if (instruction.find("DRAW") != std::string::npos)
+	if (instruction.find("DRAW") != std::string::npos)                        //If "DRAW" exist in the string instruction
 	{
-		size_t pos = instruction.find_first_of(' ');
-		int numDraw = std::stoi(instruction.substr(pos + 1));
+		size_t pos = instruction.find_first_of(' ');               
+		int numDraw = std::stoi(instruction.substr(pos + 1));             // Find the number located after the first ' ' and conevrt to int 
 		for (int i = 0; i < numDraw; i++)
 		{
 			if (pointdeck_ && !pointdeck_->IsEmpty())
 			{
-				PointCard card = pointdeck_->Draw();
+				PointCard card = pointdeck_->Draw();               // Draw x cards
 				hand_.addCard(std::move(card));
 			}
 		}
 	}
-	else if (instruction.find("PLAY") != std::string::npos)
+	else if (instruction.find("PLAY") != std::string::npos)                      // If "PLAY" exist in the string instruction
 	{
-		size_t pos = instruction.find_first_of(' ');
-		int numPlay = std::stoi(instruction.substr(pos + 1));
+		size_t pos = instruction.find_first_of(' ');                           
+		int numPlay = std::stoi(instruction.substr(pos + 1));                // Find the number located after the first ' ' and conevrt to int 
 		for (int i = 0; i < numPlay; i++)
 		{
-			if (!hand_.isEmpty())
+			if (!hand_.isEmpty())                                         // Play x cards
 			{
 				playPointCard();
 			}
@@ -82,17 +82,13 @@ void Player::play(ActionCard&& card)
 	{
 		hand_.Reverse();
 
-
 	}
 	else if (instruction == "SWAP HAND WITH OPPONENT" && opponent_ != nullptr)
 	{
 		Hand a = hand_;
 		hand_ = opponent_->getHand();
 		opponent_->setHand(a);
-
-
 	}
-
 
 }
 
