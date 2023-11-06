@@ -145,6 +145,7 @@ void Player::playPointCard()
 		int points = hand_.PlayCard();
 		score_ += points;
 	}
+	getScore();
 }
 
 void Player::setOpponent(Player* opponent)
