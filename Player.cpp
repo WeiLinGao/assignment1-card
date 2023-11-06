@@ -14,6 +14,17 @@ Player::Player()
 
 Player::~Player()
 {
+	if (actiondeck_ != nullptr)
+	{
+		delete actiondeck_;
+		actiondeck_ = nullptr;
+	}
+	
+	if (pointdeck_ != nullptr) 
+	{
+		delete pointdeck_;
+		pointdeck_ = nullptr;
+	}
 }
 
 
