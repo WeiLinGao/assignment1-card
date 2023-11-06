@@ -126,7 +126,7 @@ void Player::drawPointCard()
 	
 	PointCard card = pointdeck_->Draw();
 	hand_.addCard(std::move(card));
-	card.Print();
+	
 
 	
 }
