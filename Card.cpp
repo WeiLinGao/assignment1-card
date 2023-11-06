@@ -107,8 +107,9 @@ Card& Card::operator=(Card&& rhs)
 
 
 //Constructor
-Card::Card() :cardType_(CardType::POINT_CARD)
+Card::Card() cardType_(CardType::POINT_CARD)
 {
+    cardType_= CardType::POINT_CARD;
     instruction_ = "";
     bitmap_ = nullptr;
     drawn_ = false;
@@ -123,7 +124,9 @@ std::string Card::getType() const
     if (cardType_ == CardType::POINT_CARD)
     {
         return "POINT_CARD";
-    }else {
+    }
+    else 
+    {
         return "ACTION_CARD";
     }
 
@@ -172,7 +175,9 @@ void Card::setImageData(int* data)
     {
         bitmap_ = new int[80];
         std::copy(data, data + 80, bitmap_);
-    }else {
+    }
+    else
+    {
         bitmap_ = nullptr; 
     }
 }
