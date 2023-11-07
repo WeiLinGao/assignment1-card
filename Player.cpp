@@ -59,8 +59,8 @@ void Player::play(ActionCard&& card)
 		{
 			if (pointdeck_ && !pointdeck_->IsEmpty())
 			{
-				PointCard card = pointdeck_->Draw();               // Draw x cards
-				hand_.addCard(std::move(card));
+				drawPointCard();                                   // Draw x cards
+				
 			}
 		}
 	}
