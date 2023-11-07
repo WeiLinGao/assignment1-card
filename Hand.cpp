@@ -115,6 +115,7 @@ int Hand::PlayCard()
 	if (!card.isPlayable())
 	{
 		cards_.pop_front();
+		throw std::runtime_error("Not playable");
 	}
 
 	std::string instruction = card.getInstruction();
