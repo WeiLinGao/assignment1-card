@@ -107,7 +107,7 @@ int Hand::PlayCard()
 	if (isEmpty()|| !card.isPlayable())
 	{
 		throw std::runtime_error("Empty");
-		return point;
+		cards_.pop_front();
 	}
 
 	PointCard& card = cards_.front();
