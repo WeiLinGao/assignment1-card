@@ -114,14 +114,10 @@ int Hand::PlayCard()
 		cards_.pop_front();
 		return point;
 	}
-
-	else
-	{
-		cards_.pop_front();
-		throw std::runtime_error("Empty");
-
-	}
-
+	
+	
+	cards_.pop_front();
+	throw std::runtime_error("Empty");
 	return point;
 
 }
