@@ -110,12 +110,12 @@ int Hand::PlayCard()
 	}
 
 	PointCard& card = cards_.front();
-	int point = 0;
+	int point;
 
 	if (!card.isPlayable())
 	{
 		cards_.pop_front();
-		throw std::runtime_error("Not playable");
+		return 0;
 	}
 
 	std::string instruction = card.getInstruction();
