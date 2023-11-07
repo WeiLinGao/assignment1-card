@@ -115,7 +115,7 @@ int Hand::PlayCard()
 	if (!card.isPlayable())
 	{
 		cards_.pop_front();
-		return 0;
+		return point;
 	}
 
 	std::string instruction = card.getInstruction();
