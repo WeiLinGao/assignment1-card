@@ -132,7 +132,7 @@ int Hand::PlayCard()
 
 	if (s)
 	{
-		point+ = std::stoi(instruction);
+		point = std::stoi(instruction);
 	}
 	cards_.pop_front();
 	return point;
