@@ -101,9 +101,9 @@ void Hand::Reverse()
 //Throws an exception if the hand is empty or the card is not playable
 //If the card is not playable, the card is removed from the hand
 //return the points earned from playing the card
-int Hand::PlayCard() 
+int Hand::PlayCard()
 {
-	if (isEmpty()) 
+	if (isEmpty())
 	{
 		throw std::runtime_error("Empty");
 
@@ -112,7 +112,7 @@ int Hand::PlayCard()
 	PointCard& card = cards_.front();
 	int point = 0;
 
-	if (!card.isPlayable())
+	else if (!card.isPlayable() || card.getInstruction()==nullptr)
 	{
 		cards_.pop_front();
 		return point;
@@ -120,21 +120,12 @@ int Hand::PlayCard()
 
 	std::string instruction = card.getInstruction();
 	bool s = true;
-
-	for (char c : instruction)
-	{
-		if (!std::isdigit(c))
-		{
-			s = false;
-			break;
-		}
-	}
-
-	if (s)
+	else if(card.isPlayable())
 	{
 		point = std::stoi(instruction);
+		cards_.pop_front();
 	}
-	cards_.pop_front();
+
 	return point;
 
 }
