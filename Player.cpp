@@ -70,11 +70,8 @@ void Player::play(ActionCard&& card)
 		int numPlay = std::stoi(instruction.substr(pos + 1));                // Find the number located after the first ' ' and conevrt to int 
 		for (int i = 0; i < numPlay; i++)
 		{
-			if (!hand_.isEmpty())                                         // Play x cards
-			{
-				playPointCard();
-			}
-
+			playPointCard();                                             // Play x cards
+			
 		}
 
 	}
