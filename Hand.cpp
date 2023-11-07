@@ -107,23 +107,21 @@ int Hand::PlayCard()
 
 	PointCard& card = cards_.front();
 	int point = 0;
-	int k;
 	std::string instruction = card.getInstruction();
-	if (card.isPlayable())
+	if (card.getInstruction().isPlayable())
 	{
-		k = std::stoi(instruction);
+		point = std::stoi(instruction);
 		cards_.pop_front();
-		return k;
+		return point;
 	}
 
 	else
 	{
+		cards_.pop_front();
 		throw std::runtime_error("Empty");
 
 	}
 
-
-	cards_.pop_front();
 	return point;
 
 }
