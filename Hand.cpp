@@ -103,26 +103,32 @@ void Hand::Reverse()
 //return the points earned from playing the card
 int Hand::PlayCard()
 {
+	int point = 0;
 	if (isEmpty()|| !card.isPlayable())
 	{
 		throw std::runtime_error("Empty");
-
-	}
-	
-
-	PointCard& card = cards_.front();
-	int point = 0;
-	std::string instruction = card.getInstruction();
-	if (!instruction.empty() &&card.isPlayable())
-	{
-		point+= std::stoi(instruction);
-		cards_.pop_front();
 		return point;
 	}
-	
+
+	PointCard& card = cards_.front();
+	bool s = true;
+	std::string instruction = card.getInstruction();
+	for (char c : instruction)
+	{
+		if (!std::isdigit(c))
+		{
+			s = false;
+			break;
+		}
+	}
+
+	if (s)
+	{
+		point = std::stoi(instruction);
+	}
 	
 	cards_.pop_front();
-	
 	return point;
-
+	
+	
 }
