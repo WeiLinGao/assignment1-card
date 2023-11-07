@@ -103,7 +103,7 @@ void Hand::Reverse()
 //return the points earned from playing the card
 int Hand::PlayCard()
 {
-	if (isEmpty() || !card.isPlayable())
+	if (isEmpty())
 	{
 		throw std::runtime_error("Empty");
 
