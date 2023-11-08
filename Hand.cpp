@@ -1,5 +1,12 @@
 #include "Hand.hpp"
-//Hand.cpp Defines the Hand class.
+
+/*
+CSCI335 Fall 2023
+Assignment 1 – Card Game
+WeiLin Gao
+11/8/2023
+Hand.cpp Defines the Hand class.
+*/
 
 //Construct a new Hand object(conrstuctor)
 Hand::Hand() :cards_{}
