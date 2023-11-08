@@ -1,4 +1,5 @@
 #include "Hand.hpp"
+//Hand.cpp Defines the Hand class.
 
 //Construct a new Hand object(conrstuctor)
 Hand::Hand() :cards_{}
