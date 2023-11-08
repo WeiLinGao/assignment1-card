@@ -1,5 +1,12 @@
 #include "PointCard.hpp"
 
+/*
+CSCI335 Fall 2023
+Assignment 1 – Card Game
+Weilin Gao
+11/8/2023
+PointCard.hpp defines the PointCard class and inherits from the Card Class.
+*/
 //Construct a new Point Card object(constrcutor)
 PointCard::PointCard()
 {
