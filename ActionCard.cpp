@@ -1,5 +1,6 @@
 #include "ActionCard.hpp"
 
+// defines the ActionCard class and inherits from the Card Class.
 
 ActionCard::ActionCard()
 {
