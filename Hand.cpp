@@ -113,7 +113,7 @@ int Hand::PlayCard()
 {
 	if (isEmpty())
 	{
-		throw std::runtime_error("Empty");
+		return 0;
 
 	}
 
