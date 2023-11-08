@@ -1,6 +1,13 @@
 #include "Card.hpp"
 
-//defines the Card class and its member functions.
+
+/*
+CSCI335 Fall 2023
+Assignment 1 – Card Game
+WeiLin Gao
+11/8/2023
+Card.hpp defines the Card class and its member functions.
+*/
 
 // destructor;
 Card::~Card()
