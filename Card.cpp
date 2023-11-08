@@ -1,5 +1,6 @@
 #include "Card.hpp"
 
+//defines the Card class and its member functions.
 
 // destructor;
 Card::~Card()
