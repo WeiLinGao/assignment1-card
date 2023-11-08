@@ -1,5 +1,13 @@
 #include "Deck.hpp"
-//defines the Deck class.
+
+/*
+CSCI335 Fall 2023
+Assignment 1 – Card Game
+WeiLinGao
+11/8/2023
+Deck.cpp //defines the Deck class.
+*/
+
 
 // Construct a new Deck object(Constructor)
 template <typename CardType>
