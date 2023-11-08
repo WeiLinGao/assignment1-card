@@ -1,5 +1,12 @@
 #include "Player.hpp" 
 
+/*
+CSCI335 Fall 2023
+Assignment 1 – Card Game
+WeiLin Gao
+11/8/2023
+Player.cpp implements the Player class.
+*/
 
 //Construct a new Player object(constructor)
 Player::Player()
