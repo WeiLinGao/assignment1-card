@@ -1,5 +1,5 @@
 #include "Deck.hpp"
-
+//defines the Deck class.
 
 // Construct a new Deck object(Constructor)
 template <typename CardType>
